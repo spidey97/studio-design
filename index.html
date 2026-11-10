@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' data: blob:; connect-src 'self' data: blob: https: http://127.0.0.1:* http://localhost:*; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DesignStudio</title>
+<meta name="application-name" content="DesignStudio">
+<meta name="author" content="Spideytech">
+<meta name="theme-color" content="#1e1e22">
+<meta name="description" content="DesignStudio — vector design, motion timeline, prototyping and developer handoff in the browser.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-9.9 8.6 97.2 97.2%22%3E%3Cdefs%3E%3ClinearGradient id=%22fs%22 x1=%223.9%22 y1=%2227.0%22 x2=%2263.1%22 y2=%22100.0%22 gradientUnits=%22userSpaceOnUse%22%3E%3Cstop offset=%220%22 stop-color=%22%233A8BFF%22/%3E%3Cstop offset=%221%22 stop-color=%22%236B4FF0%22/%3E%3C/linearGradient%3E%3Cmask id=%22fm%22 maskUnits=%22userSpaceOnUse%22 x=%22-50%22 y=%22-50%22 width=%22300%22 height=%22300%22%3E%3Crect x=%22-50%22 y=%22-50%22 width=%22300%22 height=%22300%22 fill=%22%23fff%22/%3E%3Ccircle cx=%2261.8%22 cy=%2225.2%22 r=%2215.8%22 fill=%22%23000%22/%3E%3C/mask%3E%3C/defs%3E%3Cpath d=%22M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4Z%22 fill=%22url%28%23fs%29%22 mask=%22url%28%23fm%29%22/%3E%3Ccircle cx=%2261.8%22 cy=%2225.2%22 r=%2211.2%22 fill=%22%23FFC21A%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="ds-splash" aria-hidden="true"><div class="ds-splash-in"><svg class="ds-wordmark" height="46" width="300" viewBox="-2 22.55 660.80 101.25" aria-hidden="true"><defs><linearGradient id="spg" x1="0" y1="0" x2="337.5" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4ZM99.69999999999999 101.9Q92.7 101.9 87.35 99.5Q82.0 97.1 78.44999999999999 93.05Q74.89999999999999 89.0 73.05 83.95Q71.2 78.9 71.2 73.6V71.6Q71.2 66.1 73.05 61.05Q74.89999999999999 56.0 78.4 52.0Q81.9 48.0 87.15 45.65Q92.4 43.3 99.1 43.3Q107.9 43.3 113.95 47.25Q120.0 51.199999999999996 123.2 57.55Q126.4 63.9 126.4 71.4V76.8H77.9V67.69999999999999H116.7L111.5 71.9Q111.5 67.0 110.1 63.5Q108.7 60.0 105.94999999999999 58.15Q103.19999999999999 56.3 99.1 56.3Q94.9 56.3 92.0 58.199999999999996Q89.1 60.099999999999994 87.6 63.75Q86.1 67.4 86.1 72.7Q86.1 77.6 87.5 81.25Q88.9 84.9 91.9 86.9Q94.9 88.9 99.69999999999999 88.9Q104.1 88.9 106.9 87.2Q109.7 85.5 110.7 83.0H125.4Q124.2 88.5 120.7 92.8Q117.2 97.1 111.9 99.5Q106.6 101.9 99.69999999999999 101.9ZM154.8 101.7Q143.1 101.7 136.5 96.9Q129.9 92.1 129.5 83.4H143.7Q144.1 86.0 146.85 88.05Q149.6 90.1 155.1 90.1Q159.3 90.1 162.05 88.65Q164.8 87.2 164.8 84.5Q164.8 82.1 162.7 80.65Q160.6 79.2 155.2 78.6L150.9 78.2Q141.0 77.2 136.05 72.7Q131.1 68.2 131.1 61.199999999999996Q131.1 55.4 134.0 51.5Q136.9 47.599999999999994 142.05 45.599999999999994Q147.2 43.599999999999994 153.8 43.599999999999994Q164.4 43.599999999999994 170.9 48.25Q177.4 52.9 177.7 61.699999999999996H163.5Q163.1 59.0 160.7 57.15Q158.3 55.3 153.6 55.3Q149.9 55.3 147.7 56.699999999999996Q145.5 58.099999999999994 145.5 60.5Q145.5 62.8 147.4 63.99999999999999Q149.3 65.19999999999999 153.6 65.69999999999999L157.9 66.1Q168.0 67.19999999999999 173.6 71.69999999999999Q179.2 76.2 179.2 83.8Q179.2 89.3 176.2 93.35Q173.2 97.4 167.7 99.55000000000001Q162.2 101.7 154.8 101.7ZM189.20000000000002 100.0V45.199999999999996H205.20000000000002V100.0ZM181.9 57.0V45.199999999999996H205.20000000000002V57.0ZM238.60000000000002 121.8Q234.60000000000002 121.8 230.40000000000003 121.5Q226.20000000000002 121.2 222.70000000000002 120.7V107.2Q226.20000000000002 107.7 230.45000000000002 108.05000000000001Q234.70000000000002 108.4 238.20000000000002 108.4Q244.70000000000002 108.4 248.75 106.9Q252.8 105.4 254.70000000000002 102.35Q256.6 99.3 256.6 94.5V83.6L259.5 77.2Q259.3 84.5 256.65000000000003 89.7Q254.00000000000003 94.9 249.3 97.65Q244.60000000000002 100.4 238.10000000000002 100.4Q232.50000000000003 100.4 227.95000000000002 98.35Q223.4 96.3 220.20000000000002 92.6Q217.00000000000003 88.9 215.3 83.95Q213.60000000000002 79.0 213.60000000000002 73.2V70.9Q213.60000000000002 65.1 215.40000000000003 60.099999999999994Q217.20000000000002 55.099999999999994 220.60000000000002 51.39999999999999Q224.00000000000003 47.699999999999996 228.70000000000005 45.64999999999999Q233.40000000000003 43.599999999999994 239.10000000000002 43.599999999999994Q245.70000000000002 43.599999999999994 250.55 46.5Q255.40000000000003 49.4 258.20000000000005 55.0Q261.0 60.599999999999994 261.20000000000005 68.5L259.0 69.1V45.199999999999996H271.70000000000005V93.5Q271.70000000000005 103.6 268.1 109.8Q264.5 116.0 257.15 118.9Q249.8 121.8 238.60000000000002 121.8ZM243.10000000000002 86.9Q246.8 86.9 249.8 85.25Q252.8 83.6 254.55 80.5Q256.3 77.4 256.3 73.0V70.1Q256.3 65.8 254.45000000000002 62.849999999999994Q252.60000000000002 59.9 249.60000000000002 58.349999999999994Q246.60000000000002 56.8 243.20000000000002 56.8Q239.20000000000002 56.8 236.10000000000002 58.699999999999996Q233.00000000000003 60.599999999999994 231.3 64.0Q229.60000000000002 67.4 229.60000000000002 72.0Q229.60000000000002 76.7 231.35000000000002 80.05000000000001Q233.10000000000002 83.4 236.15000000000003 85.15Q239.20000000000002 86.9 243.10000000000002 86.9ZM282.6 100.0V45.199999999999996H295.3V68.7H294.40000000000003Q294.40000000000003 60.3 296.55 54.699999999999996Q298.7 49.099999999999994 303.1 46.3Q307.5 43.5 313.8 43.5H314.5Q324.1 43.5 329.15000000000003 49.75Q334.20000000000005 56.0 334.20000000000005 68.7V100.0H318.20000000000005V67.8Q318.20000000000005 63.4 315.6 60.599999999999994Q313.0 57.8 308.6 57.8Q304.1 57.8 301.35 60.65Q298.6 63.5 298.6 68.1V100.0Z" fill="url(#spg)"/><path class="wm-studio" d="M367.6 101.7Q355.9 101.7 349.29999999999995 96.9Q342.7 92.1 342.3 83.4H356.5Q356.9 86.0 359.65 88.05Q362.4 90.1 367.9 90.1Q372.1 90.1 374.85 88.65Q377.6 87.2 377.6 84.5Q377.6 82.1 375.5 80.65Q373.4 79.2 368.0 78.6L363.7 78.2Q353.8 77.2 348.85 72.7Q343.9 68.2 343.9 61.199999999999996Q343.9 55.4 346.79999999999995 51.5Q349.7 47.599999999999994 354.85 45.599999999999994Q360.0 43.599999999999994 366.6 43.599999999999994Q377.2 43.599999999999994 383.7 48.25Q390.2 52.9 390.5 61.699999999999996H376.3Q375.9 59.0 373.5 57.15Q371.1 55.3 366.4 55.3Q362.7 55.3 360.5 56.699999999999996Q358.3 58.099999999999994 358.3 60.5Q358.3 62.8 360.20000000000005 63.99999999999999Q362.1 65.19999999999999 366.4 65.69999999999999L370.7 66.1Q380.8 67.19999999999999 386.4 71.69999999999999Q392.0 76.2 392.0 83.8Q392.0 89.3 389.0 93.35Q386.0 97.4 380.5 99.55000000000001Q375.0 101.7 367.6 101.7ZM424.3 100.7Q416.0 100.7 410.9 98.65Q405.8 96.6 403.45000000000005 91.75Q401.1 86.9 401.1 78.6V30.39999999999999H416.0V79.2Q416.0 83.1 418.05 85.15Q420.1 87.2 423.90000000000003 87.2H432.0V100.7ZM392.8 56.9V45.199999999999996H432.0V56.9ZM458.3 101.7Q448.8 101.7 443.70000000000005 95.55000000000001Q438.6 89.4 438.6 77.0V45.199999999999996H454.6V77.8Q454.6 82.2 457.1 84.80000000000001Q459.6 87.4 463.8 87.4Q468.1 87.4 470.8 84.7Q473.5 82.0 473.5 77.4V45.199999999999996H489.5V100.0H476.8V76.9H477.9Q477.9 85.2 475.75 90.75Q473.6 96.3 469.4 99.0Q465.2 101.7 459.0 101.7ZM523.9 101.8Q518.1 101.8 513.35 99.69999999999999Q508.6 97.6 505.1 93.85Q501.6 90.1 499.75 85.0Q497.9 79.9 497.9 74.0V71.7Q497.9 65.8 499.65 60.699999999999996Q501.4 55.599999999999994 504.75 51.75Q508.1 47.9 512.8 45.75Q517.5 43.599999999999994 523.3 43.599999999999994Q529.9 43.599999999999994 534.7 46.449999999999996Q539.5 49.3 542.2 54.849999999999994Q544.9 60.4 545.2 68.5L541.0 64.6V27.0H557.1V100.0H544.4V77.3H546.6Q546.3 85.1 543.3499999999999 90.6Q540.4 96.1 535.4 98.94999999999999Q530.4 101.8 523.9 101.8ZM527.9 88.4Q531.6 88.4 534.6500000000001 86.75Q537.7 85.1 539.55 81.9Q541.4 78.7 541.4 74.2V70.5Q541.4 66.1 539.5 63.099999999999994Q537.6 60.099999999999994 534.5 58.5Q531.4 56.9 527.8 56.9Q523.8 56.9 520.65 58.95Q517.5 61.0 515.7 64.55Q513.9 68.1 513.9 72.8Q513.9 77.6 515.7 81.1Q517.5 84.6 520.7 86.5Q523.9 88.4 527.9 88.4ZM571.1999999999999 100.0V45.199999999999996H587.1999999999999V100.0ZM563.9 57.0V45.199999999999996H587.1999999999999V57.0ZM625.6999999999999 101.9Q618.4999999999999 101.9 612.8999999999999 99.65Q607.3 97.4 603.4499999999999 93.5Q599.5999999999999 89.6 597.5999999999999 84.55Q595.5999999999999 79.5 595.5999999999999 73.9V71.6Q595.5999999999999 65.9 597.6499999999999 60.75Q599.6999999999999 55.599999999999994 603.6499999999999 51.699999999999996Q607.5999999999999 47.8 613.1999999999999 45.55Q618.8 43.3 625.6999999999999 43.3Q632.8 43.3 638.3499999999999 45.55Q643.9 47.8 647.8 51.699999999999996Q651.6999999999999 55.599999999999994 653.8 60.75Q655.9 65.9 655.9 71.6V73.9Q655.9 79.5 653.9 84.55Q651.9 89.6 648.05 93.5Q644.1999999999999 97.4 638.5999999999999 99.65Q632.9999999999999 101.9 625.6999999999999 101.9ZM625.6999999999999 88.4Q630.4 88.4 633.5 86.4Q636.5999999999999 84.4 638.25 80.80000000000001Q639.9 77.2 639.9 72.8Q639.9 68.1 638.1999999999999 64.55Q636.4999999999999 61.0 633.3499999999999 58.9Q630.1999999999999 56.8 625.6999999999999 56.8Q621.3 56.8 618.0999999999999 58.9Q614.9 61.0 613.25 64.55Q611.5999999999999 68.1 611.5999999999999 72.8Q611.5999999999999 77.2 613.1999999999999 80.80000000000001Q614.8 84.4 618.0 86.4Q621.1999999999999 88.4 625.6999999999999 88.4Z" fill="#F4ECD6"/><circle cx="193.55" cy="33.55" r="9" fill="#FFC21A"/><circle cx="575.55" cy="33.55" r="9" fill="#FFC21A"/></svg><i></i></div></div>
+
+<div id="app">
+  <!-- Top Navigation Bar -->
+  <header id="top-bar">
+    <div class="top-bar-left">
+      <div class="logo-badge" id="app-logo-badge" title="DesignStudio">
+        <svg class="ds-mark" width="22" height="22" viewBox="-9.9 8.6 97.2 97.2" aria-hidden="true"><defs><linearGradient id="tbs" x1="3.9" y1="27.0" x2="63.1" y2="100.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient><mask id="tbm" maskUnits="userSpaceOnUse" x="-50" y="-50" width="300" height="300"><rect x="-50" y="-50" width="300" height="300" fill="#fff"/><circle cx="61.8" cy="25.2" r="14.4" fill="#000"/></mask></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4Z" fill="url(#tbs)" mask="url(#tbm)"/><circle cx="61.8" cy="25.2" r="9.9" fill="#FFC21A"/></svg>
+        <span class="ds-word"><svg class="ds-wordmark" height="17" width="111" viewBox="-2 22.55 660.80 101.25" aria-hidden="true"><defs><linearGradient id="twg" x1="0" y1="0" x2="337.5" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4ZM99.69999999999999 101.9Q92.7 101.9 87.35 99.5Q82.0 97.1 78.44999999999999 93.05Q74.89999999999999 89.0 73.05 83.95Q71.2 78.9 71.2 73.6V71.6Q71.2 66.1 73.05 61.05Q74.89999999999999 56.0 78.4 52.0Q81.9 48.0 87.15 45.65Q92.4 43.3 99.1 43.3Q107.9 43.3 113.95 47.25Q120.0 51.199999999999996 123.2 57.55Q126.4 63.9 126.4 71.4V76.8H77.9V67.69999999999999H116.7L111.5 71.9Q111.5 67.0 110.1 63.5Q108.7 60.0 105.94999999999999 58.15Q103.19999999999999 56.3 99.1 56.3Q94.9 56.3 92.0 58.199999999999996Q89.1 60.099999999999994 87.6 63.75Q86.1 67.4 86.1 72.7Q86.1 77.6 87.5 81.25Q88.9 84.9 91.9 86.9Q94.9 88.9 99.69999999999999 88.9Q104.1 88.9 106.9 87.2Q109.7 85.5 110.7 83.0H125.4Q124.2 88.5 120.7 92.8Q117.2 97.1 111.9 99.5Q106.6 101.9 99.69999999999999 101.9ZM154.8 101.7Q143.1 101.7 136.5 96.9Q129.9 92.1 129.5 83.4H143.7Q144.1 86.0 146.85 88.05Q149.6 90.1 155.1 90.1Q159.3 90.1 162.05 88.65Q164.8 87.2 164.8 84.5Q164.8 82.1 162.7 80.65Q160.6 79.2 155.2 78.6L150.9 78.2Q141.0 77.2 136.05 72.7Q131.1 68.2 131.1 61.199999999999996Q131.1 55.4 134.0 51.5Q136.9 47.599999999999994 142.05 45.599999999999994Q147.2 43.599999999999994 153.8 43.599999999999994Q164.4 43.599999999999994 170.9 48.25Q177.4 52.9 177.7 61.699999999999996H163.5Q163.1 59.0 160.7 57.15Q158.3 55.3 153.6 55.3Q149.9 55.3 147.7 56.699999999999996Q145.5 58.099999999999994 145.5 60.5Q145.5 62.8 147.4 63.99999999999999Q149.3 65.19999999999999 153.6 65.69999999999999L157.9 66.1Q168.0 67.19999999999999 173.6 71.69999999999999Q179.2 76.2 179.2 83.8Q179.2 89.3 176.2 93.35Q173.2 97.4 167.7 99.55000000000001Q162.2 101.7 154.8 101.7ZM189.20000000000002 100.0V45.199999999999996H205.20000000000002V100.0ZM181.9 57.0V45.199999999999996H205.20000000000002V57.0ZM238.60000000000002 121.8Q234.60000000000002 121.8 230.40000000000003 121.5Q226.20000000000002 121.2 222.70000000000002 120.7V107.2Q226.20000000000002 107.7 230.45000000000002 108.05000000000001Q234.70000000000002 108.4 238.20000000000002 108.4Q244.70000000000002 108.4 248.75 106.9Q252.8 105.4 254.70000000000002 102.35Q256.6 99.3 256.6 94.5V83.6L259.5 77.2Q259.3 84.5 256.65000000000003 89.7Q254.00000000000003 94.9 249.3 97.65Q244.60000000000002 100.4 238.10000000000002 100.4Q232.50000000000003 100.4 227.95000000000002 98.35Q223.4 96.3 220.20000000000002 92.6Q217.00000000000003 88.9 215.3 83.95Q213.60000000000002 79.0 213.60000000000002 73.2V70.9Q213.60000000000002 65.1 215.40000000000003 60.099999999999994Q217.20000000000002 55.099999999999994 220.60000000000002 51.39999999999999Q224.00000000000003 47.699999999999996 228.70000000000005 45.64999999999999Q233.40000000000003 43.599999999999994 239.10000000000002 43.599999999999994Q245.70000000000002 43.599999999999994 250.55 46.5Q255.40000000000003 49.4 258.20000000000005 55.0Q261.0 60.599999999999994 261.20000000000005 68.5L259.0 69.1V45.199999999999996H271.70000000000005V93.5Q271.70000000000005 103.6 268.1 109.8Q264.5 116.0 257.15 118.9Q249.8 121.8 238.60000000000002 121.8ZM243.10000000000002 86.9Q246.8 86.9 249.8 85.25Q252.8 83.6 254.55 80.5Q256.3 77.4 256.3 73.0V70.1Q256.3 65.8 254.45000000000002 62.849999999999994Q252.60000000000002 59.9 249.60000000000002 58.349999999999994Q246.60000000000002 56.8 243.20000000000002 56.8Q239.20000000000002 56.8 236.10000000000002 58.699999999999996Q233.00000000000003 60.599999999999994 231.3 64.0Q229.60000000000002 67.4 229.60000000000002 72.0Q229.60000000000002 76.7 231.35000000000002 80.05000000000001Q233.10000000000002 83.4 236.15000000000003 85.15Q239.20000000000002 86.9 243.10000000000002 86.9ZM282.6 100.0V45.199999999999996H295.3V68.7H294.40000000000003Q294.40000000000003 60.3 296.55 54.699999999999996Q298.7 49.099999999999994 303.1 46.3Q307.5 43.5 313.8 43.5H314.5Q324.1 43.5 329.15000000000003 49.75Q334.20000000000005 56.0 334.20000000000005 68.7V100.0H318.20000000000005V67.8Q318.20000000000005 63.4 315.6 60.599999999999994Q313.0 57.8 308.6 57.8Q304.1 57.8 301.35 60.65Q298.6 63.5 298.6 68.1V100.0Z" fill="url(#twg)"/><path class="wm-studio" d="M367.6 101.7Q355.9 101.7 349.29999999999995 96.9Q342.7 92.1 342.3 83.4H356.5Q356.9 86.0 359.65 88.05Q362.4 90.1 367.9 90.1Q372.1 90.1 374.85 88.65Q377.6 87.2 377.6 84.5Q377.6 82.1 375.5 80.65Q373.4 79.2 368.0 78.6L363.7 78.2Q353.8 77.2 348.85 72.7Q343.9 68.2 343.9 61.199999999999996Q343.9 55.4 346.79999999999995 51.5Q349.7 47.599999999999994 354.85 45.599999999999994Q360.0 43.599999999999994 366.6 43.599999999999994Q377.2 43.599999999999994 383.7 48.25Q390.2 52.9 390.5 61.699999999999996H376.3Q375.9 59.0 373.5 57.15Q371.1 55.3 366.4 55.3Q362.7 55.3 360.5 56.699999999999996Q358.3 58.099999999999994 358.3 60.5Q358.3 62.8 360.20000000000005 63.99999999999999Q362.1 65.19999999999999 366.4 65.69999999999999L370.7 66.1Q380.8 67.19999999999999 386.4 71.69999999999999Q392.0 76.2 392.0 83.8Q392.0 89.3 389.0 93.35Q386.0 97.4 380.5 99.55000000000001Q375.0 101.7 367.6 101.7ZM424.3 100.7Q416.0 100.7 410.9 98.65Q405.8 96.6 403.45000000000005 91.75Q401.1 86.9 401.1 78.6V30.39999999999999H416.0V79.2Q416.0 83.1 418.05 85.15Q420.1 87.2 423.90000000000003 87.2H432.0V100.7ZM392.8 56.9V45.199999999999996H432.0V56.9ZM458.3 101.7Q448.8 101.7 443.70000000000005 95.55000000000001Q438.6 89.4 438.6 77.0V45.199999999999996H454.6V77.8Q454.6 82.2 457.1 84.80000000000001Q459.6 87.4 463.8 87.4Q468.1 87.4 470.8 84.7Q473.5 82.0 473.5 77.4V45.199999999999996H489.5V100.0H476.8V76.9H477.9Q477.9 85.2 475.75 90.75Q473.6 96.3 469.4 99.0Q465.2 101.7 459.0 101.7ZM523.9 101.8Q518.1 101.8 513.35 99.69999999999999Q508.6 97.6 505.1 93.85Q501.6 90.1 499.75 85.0Q497.9 79.9 497.9 74.0V71.7Q497.9 65.8 499.65 60.699999999999996Q501.4 55.599999999999994 504.75 51.75Q508.1 47.9 512.8 45.75Q517.5 43.599999999999994 523.3 43.599999999999994Q529.9 43.599999999999994 534.7 46.449999999999996Q539.5 49.3 542.2 54.849999999999994Q544.9 60.4 545.2 68.5L541.0 64.6V27.0H557.1V100.0H544.4V77.3H546.6Q546.3 85.1 543.3499999999999 90.6Q540.4 96.1 535.4 98.94999999999999Q530.4 101.8 523.9 101.8ZM527.9 88.4Q531.6 88.4 534.6500000000001 86.75Q537.7 85.1 539.55 81.9Q541.4 78.7 541.4 74.2V70.5Q541.4 66.1 539.5 63.099999999999994Q537.6 60.099999999999994 534.5 58.5Q531.4 56.9 527.8 56.9Q523.8 56.9 520.65 58.95Q517.5 61.0 515.7 64.55Q513.9 68.1 513.9 72.8Q513.9 77.6 515.7 81.1Q517.5 84.6 520.7 86.5Q523.9 88.4 527.9 88.4ZM571.1999999999999 100.0V45.199999999999996H587.1999999999999V100.0ZM563.9 57.0V45.199999999999996H587.1999999999999V57.0ZM625.6999999999999 101.9Q618.4999999999999 101.9 612.8999999999999 99.65Q607.3 97.4 603.4499999999999 93.5Q599.5999999999999 89.6 597.5999999999999 84.55Q595.5999999999999 79.5 595.5999999999999 73.9V71.6Q595.5999999999999 65.9 597.6499999999999 60.75Q599.6999999999999 55.599999999999994 603.6499999999999 51.699999999999996Q607.5999999999999 47.8 613.1999999999999 45.55Q618.8 43.3 625.6999999999999 43.3Q632.8 43.3 638.3499999999999 45.55Q643.9 47.8 647.8 51.699999999999996Q651.6999999999999 55.599999999999994 653.8 60.75Q655.9 65.9 655.9 71.6V73.9Q655.9 79.5 653.9 84.55Q651.9 89.6 648.05 93.5Q644.1999999999999 97.4 638.5999999999999 99.65Q632.9999999999999 101.9 625.6999999999999 101.9ZM625.6999999999999 88.4Q630.4 88.4 633.5 86.4Q636.5999999999999 84.4 638.25 80.80000000000001Q639.9 77.2 639.9 72.8Q639.9 68.1 638.1999999999999 64.55Q636.4999999999999 61.0 633.3499999999999 58.9Q630.1999999999999 56.8 625.6999999999999 56.8Q621.3 56.8 618.0999999999999 58.9Q614.9 61.0 613.25 64.55Q611.5999999999999 68.1 611.5999999999999 72.8Q611.5999999999999 77.2 613.1999999999999 80.80000000000001Q614.8 84.4 618.0 86.4Q621.1999999999999 88.4 625.6999999999999 88.4Z" fill="#F4ECD6"/><circle cx="193.55" cy="33.55" r="9" fill="#FFC21A"/><circle cx="575.55" cy="33.55" r="9" fill="#FFC21A"/></svg></span>
+      </div>
+      <div class="section-switch" id="section-switch" role="tablist" aria-label="Workspace section">
+        <button class="active" data-section="design" role="tab" aria-selected="true" title="Design & animate (Ctrl+Alt+1)">Design</button>
+        <button data-section="media" role="tab" aria-selected="false" title="Media & compression tools (Ctrl+Alt+2)">Media</button>
+        <button data-section="3d" role="tab" aria-selected="false" title="3D scene (Ctrl+Alt+3)">3D</button>
+        <button data-section="handover" role="tab" aria-selected="false" title="Developer handover: specs, code and assets for committed designs (Ctrl+Alt+4)">Handover</button>
+      </div>
+      <div class="menu-bar">
+        <div style="position:relative;">
+          <button class="menu-btn" id="m-file">File</button>
+          <div class="top-dropdown" id="dropdown-file">
+            <div class="dropdown-item" data-action="new">New Project… <span class="dropdown-shortcut">Ctrl+Alt+N</span></div>
+            <div class="dropdown-item" data-action="open">Open / Import… <span class="dropdown-shortcut">Ctrl+O</span></div>
+            <div class="dropdown-item" data-action="githubImport">Import from GitHub…</div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="save">Save Project <span class="dropdown-shortcut">Ctrl+S</span></div>
+            <div class="dropdown-item" data-action="saveAs">Save As… <span class="dropdown-shortcut">Ctrl+Shift+S</span></div>
+            <div class="dropdown-item" data-action="saveVersion">Save Version… <span class="dropdown-shortcut">Ctrl+Alt+S</span></div>
+            <div class="dropdown-item" data-action="versionHistory">Version History…</div>
+            <div class="dropdown-item" data-action="sharePackage">Share Package (.zip)…</div>
+            <div class="dropdown-item" data-action="export">Export… <span class="dropdown-shortcut">Ctrl+E</span></div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="reset">Clear Page…</div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="userGuide">User Guide</div>
+            <div class="dropdown-item" data-action="licences">Licences &amp; Notices</div>
+            <div class="dropdown-item" data-action="about">About DesignStudio / Version…</div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <button class="menu-btn" id="m-edit">Edit</button>
+          <div class="top-dropdown" id="dropdown-edit">
+            <div class="dropdown-item" data-action="undo">Undo <span class="dropdown-shortcut">Ctrl+Z</span></div>
+            <div class="dropdown-item" data-action="redo">Redo <span class="dropdown-shortcut">Ctrl+Shift+Z</span></div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="cut">Cut <span class="dropdown-shortcut">Ctrl+X</span></div>
+            <div class="dropdown-item" data-action="copy">Copy <span class="dropdown-shortcut">Ctrl+C</span></div>
+            <div class="dropdown-item" data-action="paste">Paste <span class="dropdown-shortcut">Ctrl+V</span></div>
+            <div class="dropdown-item" data-action="duplicate">Duplicate <span class="dropdown-shortcut">Ctrl+D</span></div>
+            <div class="dropdown-item" data-action="delete">Delete <span class="dropdown-shortcut">Del</span></div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="selectAll">Select All <span class="dropdown-shortcut">Ctrl+A</span></div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <button class="menu-btn" id="m-view">View</button>
+          <div class="top-dropdown" id="dropdown-view">
+            <div class="dropdown-item" data-action="zoomIn">Zoom In <span class="dropdown-shortcut">Ctrl++</span></div>
+            <div class="dropdown-item" data-action="zoomOut">Zoom Out <span class="dropdown-shortcut">Ctrl+-</span></div>
+            <div class="dropdown-item" data-action="zoomReset">Zoom to 100% <span class="dropdown-shortcut">Ctrl+0</span></div>
+            <div class="dropdown-item" data-action="zoomFit">Zoom to Fit <span class="dropdown-shortcut">Shift+1</span></div>
+            <div class="dropdown-item" data-action="zoomSelection">Zoom to Selection <span class="dropdown-shortcut">Shift+2</span></div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="toggleRulers">Rulers <span class="dropdown-shortcut">Shift+R</span></div>
+            <div class="dropdown-item" data-action="toggleGrid">Grid <span class="dropdown-shortcut">Ctrl+'</span></div>
+            <div class="dropdown-item" data-action="toggleSnap">Smart Snapping</div>
+            <div class="dropdown-item" data-action="toggleGuides">Guides <span class="dropdown-shortcut">Ctrl+;</span></div>
+            <div class="dropdown-item" data-action="lockGuides">Lock Guides <span class="dropdown-shortcut">Ctrl+Alt+;</span></div>
+            <div class="dropdown-item" data-action="clearGuides">Clear Guides on Page</div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="toggleTimeline">Animation Timeline</div>
+            <div class="dropdown-item" data-action="playProto">Play Prototype <span class="dropdown-shortcut">Ctrl+Alt+P</span></div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <button class="menu-btn" id="m-object">Object</button>
+          <div class="top-dropdown" id="dropdown-object">
+            <div class="dropdown-item" data-action="group">Group Selection <span class="dropdown-shortcut">Ctrl+G</span></div>
+            <div class="dropdown-item" data-action="ungroup">Ungroup <span class="dropdown-shortcut">Ctrl+Shift+G</span></div>
+            <div class="dropdown-item" data-action="frame">Frame Selection <span class="dropdown-shortcut">Ctrl+Alt+G</span></div>
+            <div class="dropdown-item" data-action="autoLayout">Add Auto Layout <span class="dropdown-shortcut">Shift+A</span></div>
+            <div class="dropdown-item" data-action="createComp">Create Component <span class="dropdown-shortcut">Ctrl+Alt+K</span></div>
+            <div class="dropdown-item" data-action="detachComp">Detach Instance <span class="dropdown-shortcut">Ctrl+Alt+B</span></div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="front">Bring to Front <span class="dropdown-shortcut">Ctrl+Shift+]</span></div>
+            <div class="dropdown-item" data-action="forward">Bring Forward <span class="dropdown-shortcut">Ctrl+]</span></div>
+            <div class="dropdown-item" data-action="backward">Send Backward <span class="dropdown-shortcut">Ctrl+[</span></div>
+            <div class="dropdown-item" data-action="back">Send to Back <span class="dropdown-shortcut">Ctrl+Shift+[</span></div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item" data-action="flipH">Flip Horizontal <span class="dropdown-shortcut">Shift+H</span></div>
+            <div class="dropdown-item" data-action="flipV">Flip Vertical <span class="dropdown-shortcut">Shift+V</span></div>
+            <div class="dropdown-item" data-action="toggleLock">Lock / Unlock <span class="dropdown-shortcut">Ctrl+Shift+L</span></div>
+            <div class="dropdown-item" data-action="toggleVis">Hide / Show <span class="dropdown-shortcut">Ctrl+Shift+H</span></div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <button class="menu-btn" id="m-plugins">Plugins</button>
+          <div class="top-dropdown" id="dropdown-plugins">
+            <div class="dropdown-item" data-action="pluginStudio">Plugin Studio…</div>
+            <div class="dropdown-item" data-action="pluginImport">Import Plugin (.dsplugin)…</div>
+            <div class="dropdown-sep"></div>
+            <div class="dropdown-item disabled pl-empty">No plugins yet: open Plugin Studio</div>
+          </div>
+        </div>
+      </div>
+      <input type="text" class="project-title-input" id="project-title" value="Untitled Studio Project" spellcheck="false" />
+    </div>
+
+    <div class="top-bar-center">
+      <div class="mode-switch" id="mode-switch" role="group" aria-label="Edit or animate mode">
+        <button class="active" data-mode="design" title="Edit mode: layout and styling (layers keep their design values)"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.7-10.2a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg><span>Edit</span></button>
+        <button data-mode="animate" title="Animate mode: timelines, state machines, inputs"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><span>Animate</span></button>
+      </div>
+      <div class="prop-btn-group">
+        <button class="prop-icon-btn" id="btn-zoom-out" title="Zoom Out (Ctrl+-)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/></svg>
+        </button>
+        <button class="menu-btn" id="btn-zoom-level" style="font-size:11px; width:52px; text-align:center;">100%</button>
+        <button class="prop-icon-btn" id="btn-zoom-in" title="Zoom In (Ctrl++)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="top-bar-right">
+      <button class="menu-btn" id="btn-toggle-grid" title="Toggle Grid (Ctrl+')">Grid</button>
+      <button class="menu-btn" id="btn-toggle-snap" title="Toggle Smart Snapping">Snap</button>
+      <button class="menu-btn" id="btn-toggle-timeline" title="Toggle Animation Timeline">Timeline</button>
+      <button class="btn-primary" id="btn-play-proto" style="padding: 4px 12px; border-radius: 4px;" title="Play Interactive Prototype">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+        <span>Play</span>
+      </button>
+      <button class="menu-btn" id="btn-export-modal" style="background:var(--bg-active); border-color:var(--border-color);" title="Export Options (Ctrl+E)">Export</button>
+    </div>
+  </header>
+
+  <!-- Workspace Container -->
+  <div id="main-workspace">
+    <!-- Left Tool Palette -->
+    <aside id="tool-palette">
+      <button class="tool-btn active" data-tool="select" title="Move / Select (V)"><svg viewBox="0 0 24 24"><path d="M4 2l12 11.5h-6l4 7.5-2.5 1-4-7.5L4 18V2z"/></svg></button>
+      <button class="tool-btn" data-tool="directSelect" title="Direct Selection / Anchor Point (A)"><svg viewBox="0 0 24 24"><path d="M12 2l8 18-8-4-8 4 8-18z"/></svg></button>
+      <button class="tool-btn" data-tool="scale" title="Scale (K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="12.5" width="8" height="8" rx="1.5"/><path d="M3.5 8.5v-3a2 2 0 0 1 2-2h3M12.5 3.5h3M20.5 8.5v3M20.5 15.5v3a2 2 0 0 1-2 2h-3"/><path d="M11.5 12.5l9-9M14.5 3.5h6v6"/></svg></button>
+      <button class="tool-btn" data-tool="hand" title="Hand / Pan (H or Space)"><svg viewBox="0 0 24 24"><path d="M13 24c-3.2 0-6.1-1.3-8.2-3.4L0 15.8l1.4-1.4c.4-.4.9-.6 1.4-.6h.4L7 16V4.5C7 3.7 7.7 3 8.5 3s1.5.7 1.5 1.5V12h1V1.5C11 .7 11.7 0 12.5 0S14 .7 14 1.5V12h1V2.5C15 1.7 15.7 1 16.5 1S18 1.7 18 2.5V12h1V4.5C19 3.7 19.7 3 20.5 3S22 3.7 22 4.5V16c0 4.4-3.6 8-8 8z"/></svg></button>
+      <button class="tool-btn" data-tool="zoom" title="Zoom (Z)"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+
+      <div class="tool-divider"></div>
+
+      <button class="tool-btn" data-tool="frame" title="Frame (F)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg></button>
+      <button class="tool-btn" data-tool="rect" title="Rectangle (R)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+      <button class="tool-btn" data-tool="ellipse" title="Ellipse (O)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+      <button class="tool-btn" data-tool="line" title="Line (L)"><svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" stroke-width="2.5"/></svg></button>
+      <button class="tool-btn" data-tool="arrow" title="Arrow (Shift+L)"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+      <button class="tool-btn" data-tool="polygon" title="Polygon"><svg viewBox="0 0 24 24"><polygon points="12 3 22 21 2 21" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+      <button class="tool-btn" data-tool="star" title="Star"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+
+      <div class="tool-divider"></div>
+
+      <button class="tool-btn" data-tool="pen" title="Pen Tool (P)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5 5 11.5 7.5 3h9L19 11.5z"/><path d="M12 21.5V13"/><circle cx="12" cy="11" r="1.8"/><path d="M7.5 3h9"/></svg></button>
+      <button class="tool-btn" data-tool="pencil" title="Pencil / Freehand (Shift+P)"><svg viewBox="0 0 24 24"><path d="M21.71 5.29l-3-3a.996.996 0 0 0-1.41 0L3 16.59V21h4.41L21.71 6.7a1 1 0 0 0 0-1.41zM6.59 19H5v-1.59l11-11L17.59 8 6.59 19z"/></svg></button>
+      <button class="tool-btn" data-tool="text" title="Text (T)"><svg viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4z"/></svg></button>
+      <button class="tool-btn" data-tool="eyedropper" title="Eyedropper (I)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.2 5.3l1.6-1.6a2.4 2.4 0 0 1 3.4 0l1.1 1.1a2.4 2.4 0 0 1 0 3.4l-1.6 1.6"/><path d="M12.7 6.8l4.5 4.5"/><path d="M15.6 9.7l-8.8 8.8-3 .9.9-3 8.8-8.8"/><path d="M6.1 14.4h5.6"/></svg></button>
+      <button class="tool-btn" data-tool="measure" title="Measure (M)"><svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h3v8z"/></svg></button>
+    </aside>
+
+    <!-- Left Panel (Layers / Assets / Pages) -->
+    <section id="left-panel">
+      <div class="panel-tabs">
+        <button class="panel-tab-btn active" data-tab="layers">Layers</button>
+        <button class="panel-tab-btn" data-tab="assets">Assets</button>
+        <button class="panel-tab-btn" data-tab="pages">Pages</button>
+      </div>
+
+      <!-- Layers Tab -->
+      <div class="panel-content" id="panel-tab-layers">
+        <div class="panel-search">
+          <input type="text" id="layer-search-input" placeholder="Search layers..." spellcheck="false" />
+        </div>
+        <ul class="tree-list" id="layers-tree">
+          <!-- Dynamically populated layers -->
+        </ul>
+      </div>
+
+      <!-- Assets & Styles Tab -->
+      <div class="panel-content" id="panel-tab-assets" style="display:none;">
+        <div class="panel-search">
+          <input type="text" id="assets-search-input" placeholder="Search components & styles..." spellcheck="false" />
+        </div>
+        <div class="assets-container">
+          <div class="assets-section-title">
+            <span>Components</span>
+            <button class="prop-icon-btn" id="btn-assets-create-comp" title="Create Component from Selection">+</button>
+          </div>
+          <div class="assets-grid" id="assets-components-grid">
+            <!-- Dynamic Components -->
+          </div>
+
+          <div class="assets-section-title">
+            <span>Color Styles</span>
+            <button class="prop-icon-btn" id="btn-add-color-style" title="Create Color Style from Selection">+</button>
+          </div>
+          <div class="style-list" id="color-styles-list">
+            <!-- Dynamic Color Styles -->
+          </div>
+
+          <div class="assets-section-title">
+            <span>Text Styles</span>
+            <button class="prop-icon-btn" id="btn-add-text-style" title="Create Text Style from Selection">+</button>
+          </div>
+          <div class="style-list" id="text-styles-list">
+            <!-- Dynamic Text Styles -->
+          </div>
+
+          <div class="assets-section-title">
+            <span>Effect Styles</span>
+            <button class="prop-icon-btn" id="btn-add-effect-style" title="Create Effect Style from Selection">+</button>
+          </div>
+          <div class="style-list" id="effect-styles-list">
+            <!-- Dynamic Effect Styles -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Pages Tab -->
+      <div class="panel-content" id="panel-tab-pages" style="display:none; padding:8px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span style="font-weight:600; font-size:11.5px; color:#fff;">Project Pages</span>
+          <button class="prop-icon-btn" id="btn-add-page" title="New Page">+</button>
+        </div>
+        <ul class="tree-list" id="pages-list">
+          <!-- Dynamic Pages -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- Center Canvas Viewport -->
+    <main id="center-viewport">
+      <div id="ruler-corner"></div>
+      <canvas id="ruler-x"></canvas>
+      <canvas id="ruler-y"></canvas>
+
+      <div id="canvas-wrap">
+        <canvas id="main-canvas"></canvas>
+
+        <!-- Drop Overlay -->
+        <div id="drop-overlay">
+          <div class="drop-overlay-box">
+            <h3 style="color:#fff; margin-bottom:6px;">Drop File to Import</h3>
+            <p style="color:var(--text-muted); font-size:12px;">Supports SVG, PNG, JPG, WebP, and .designstudio.json</p>
+          </div>
+        </div>
+
+        <!-- Transform Tooltip -->
+        <div id="transform-tooltip"></div>
+
+        <!-- Inline Text Editor -->
+        <textarea id="text-inline-editor"></textarea>
+
+        <!-- Minimap -->
+        <div id="minimap-container">
+          <canvas id="minimap-canvas"></canvas>
+          <div id="minimap-viewport"></div>
+        </div>
+
+        <!-- Welcome Overlay -->
+        <div id="welcome-screen" style="display:none;">
+          <div class="welcome-logo">
+            <svg class="ds-mark" width="34" height="34" viewBox="-9.9 8.6 97.2 97.2" aria-hidden="true"><defs><linearGradient id="wls" x1="3.9" y1="27.0" x2="63.1" y2="100.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient><mask id="wlm" maskUnits="userSpaceOnUse" x="-50" y="-50" width="300" height="300"><rect x="-50" y="-50" width="300" height="300" fill="#fff"/><circle cx="61.8" cy="25.2" r="14.4" fill="#000"/></mask></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4Z" fill="url(#wls)" mask="url(#wlm)"/><circle cx="61.8" cy="25.2" r="9.9" fill="#FFC21A"/></svg>
+            <span>Welcome to DesignStudio</span>
+          </div>
+          <p class="welcome-desc">Design screens, animate them with state machines, edit GIFs and video, and build interactive 3D — all in your browser, nothing uploaded.</p>
+          <div class="welcome-start" role="group" aria-label="What do you want to make?">
+            <button type="button" data-start="design"><span class="ws-ico" aria-hidden="true">✏️</span><b>Design</b><span>Screens, components, prototypes</span></button>
+            <button type="button" data-start="animate"><span class="ws-ico" aria-hidden="true">🎬</span><b>Animate</b><span>Timelines, state machines, inputs</span></button>
+            <button type="button" data-start="media"><span class="ws-ico" aria-hidden="true">🎞</span><b>Media</b><span>GIF, video, compression</span></button>
+            <button type="button" data-start="3d"><span class="ws-ico" aria-hidden="true">🧊</span><b>3D</b><span>Scenes, models, 3D interactions</span></button>
+          </div>
+          <div class="welcome-sub">Start a design from <button type="button" class="welcome-news" id="btn-whats-new">What’s new in v3.4</button></div>
+          <div class="welcome-grid">
+            <div class="welcome-card" id="wc-desktop">
+              <span class="welcome-card-icon">💻</span>
+              <span class="welcome-card-title">Desktop Frame</span>
+              <span class="welcome-card-sub">1440 × 900 Canvas</span>
+            </div>
+            <div class="welcome-card" id="wc-mobile">
+              <span class="welcome-card-icon">📱</span>
+              <span class="welcome-card-title">Mobile UI</span>
+              <span class="welcome-card-sub">iPhone 14 Pro (393 × 852)</span>
+            </div>
+            <div class="welcome-card" id="wc-tablet">
+              <span class="welcome-card-icon">📟</span>
+              <span class="welcome-card-title">Tablet Frame</span>
+              <span class="welcome-card-sub">iPad (768 × 1024)</span>
+            </div>
+            <div class="welcome-card" id="wc-import">
+              <span class="welcome-card-icon">📂</span>
+              <span class="welcome-card-title">Import File</span>
+              <span class="welcome-card-sub">SVG, PNG, or JSON</span>
+            </div>
+            <div class="welcome-card" id="wc-recent">
+              <span class="welcome-card-icon">🕒</span>
+              <span class="welcome-card-title">Recent Project</span>
+              <span class="welcome-card-sub">Load last local autosave</span>
+            </div>
+            <div class="welcome-card" id="wc-template">
+              <span class="welcome-card-icon">🎨</span>
+              <span class="welcome-card-title">Design System</span>
+              <span class="welcome-card-sub">Card, Hero & Button kit</span>
+            </div>
+          </div>
+          
+          <div class="shortcuts-ref-table">
+            <div class="shortcuts-ref-row"><span>Select / Move Tool</span><span class="k-cmd">V</span></div>
+            <div class="shortcuts-ref-row"><span>Rectangle / Ellipse / Text</span><span class="k-cmd">R / O / T</span></div>
+            <div class="shortcuts-ref-row"><span>Duplicate / Group</span><span class="k-cmd">Ctrl+D / Ctrl+G</span></div>
+            <div class="shortcuts-ref-row"><span>Auto Layout / Component</span><span class="k-cmd">Shift+A / Ctrl+Alt+K</span></div>
+          </div>
+
+          <button class="btn-primary" id="btn-dismiss-welcome" style="padding: 6px 24px;">Explore the sample file</button>
+        </div>
+      </div>
+
+      <!-- Collapsible Animation Timeline Panel -->
+      <section id="timeline-panel" style="display:none;">
+        <div id="timeline-resize-handle"></div>
+        <div id="timeline-header">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button class="prop-icon-btn" id="tl-btn-play" title="Play Animation">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button class="prop-icon-btn" id="tl-btn-stop" title="Stop Animation">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg>
+            </button>
+            <button class="prop-icon-btn" id="tl-btn-loop" title="Toggle Loop">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+            </button>
+            <span style="font-size:11px; font-family:var(--font-mono); color:#fff;" id="tl-time-readout">0:00.000 / 5.000s</span>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="prop-icon-btn" id="tl-btn-autokey" title="Auto-key: changes to the selection record keyframes" aria-label="Auto-key"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="#ff5a5f"/><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+            <button class="prop-icon-btn" id="tl-btn-onionskin" title="Onion skin: show neighbouring frames" aria-label="Onion skin"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="7" width="10" height="10" rx="2" opacity=".45"/><rect x="7" y="5" width="10" height="10" rx="2" opacity=".7"/><rect x="11" y="3" width="10" height="10" rx="2"/></svg></button>
+            <button class="prop-icon-btn" id="tl-add-keyframe" title="Add Keyframe at Current Time">+ ◆</button>
+            
+            <span style="font-size:10.5px; color:var(--text-muted);">Speed:</span>
+            <select id="tl-speed-select" style="padding:2px 4px; font-size:10px;">
+              <option value="0.25">0.25x</option>
+              <option value="0.5">0.5x</option>
+              <option value="1" selected>1x</option>
+              <option value="2">2x</option>
+            </select>
+
+            <span style="font-size:10.5px; color:var(--text-muted);">FPS:</span>
+            <select id="tl-fps-select" style="padding:2px 4px; font-size:10px;">
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="30">30</option>
+              <option value="60" selected>60</option>
+            </select>
+
+            <span style="font-size:10.5px; color:var(--text-muted);">Duration:</span>
+            <input type="number" id="tl-duration-inp" value="5.0" step="0.5" min="1" max="60" style="width:42px; padding:2px;" />s
+          </div>
+        </div>
+        <div id="timeline-body">
+          <div id="timeline-left-tracks">
+            <div style="padding: 6px 8px; font-size:11px; font-weight:600; color:var(--text-muted); border-bottom:1px solid var(--border-color);">Animated Tracks</div>
+            <div id="tl-tracks-list"></div>
+          </div>
+          <div id="timeline-right-canvas-wrap">
+            <div id="tl-playhead">
+              <div id="tl-playhead-head"></div>
+            </div>
+            <canvas id="timeline-canvas"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Right Properties Panel -->
+    <aside id="right-panel">
+      <div class="panel-tabs">
+        <button class="panel-tab-btn active" data-tab="design">Design</button>
+        <button class="panel-tab-btn" data-tab="prototype">Prototype</button>
+        <button class="panel-tab-btn" data-tab="inspect">Inspect</button>
+      </div>
+
+      <!-- DESIGN TAB -->
+      <div class="panel-content prop-scroll-body" id="panel-tab-design">
+        <!-- Alignment & Distribution -->
+        <div class="prop-section">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="prop-btn-group">
+              <button class="prop-icon-btn" id="act-align-left" title="Align Left"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M4 22H2V2h2v20zM22 7H6v3h16V7zm-6 7H6v3h10v-3z"/></svg></button>
+              <button class="prop-icon-btn" id="act-align-center-h" title="Align Horizontal Centers"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2h2v5h7v3h-7v4h4v3h-4v5h-2v-5H7v-3h4v-4H4V7h7V2z"/></svg></button>
+              <button class="prop-icon-btn" id="act-align-right" title="Align Right"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2h2v20h-2V2zM2 7h16v3H2V7zm6 7h10v3H8v-3z"/></svg></button>
+              <button class="prop-icon-btn" id="act-align-top" title="Align Top"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4V2H2v2h20zM7 22h3V6H7v16zm7-6h3V6h-3v10z"/></svg></button>
+              <button class="prop-icon-btn" id="act-align-center-v" title="Align Vertical Centers"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11h-5V4h-3v7h-4V7H7v4H2v2h5v4h3v-4h4v7h3v-7h5v-2z"/></svg></button>
+              <button class="prop-icon-btn" id="act-align-bottom" title="Align Bottom"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M22 20v2H2v-2h20zM7 2h3v16H7V2zm7 6h3v10h-3V8z"/></svg></button>
+            </div>
+            <div class="prop-btn-group">
+              <button class="prop-icon-btn" id="act-dist-h" title="Distribute Horizontal Spacing"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2 2h2v20H2V2zm18 0h2v20h-2V2zm-9 5h2v10h-2V7z"/></svg></button>
+              <button class="prop-icon-btn" id="act-dist-v" title="Distribute Vertical Spacing"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2 2v2h20V2H2zm0 18v2h20v-2H2zm5-9v2h10v-2H7z"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame Dimensions & Transform -->
+        <div class="prop-section">
+          <div class="prop-section-header">
+            <span>Transform</span>
+          </div>
+          <div class="prop-row">
+            <div class="prop-input-group"><span data-scrub="x">X</span><input type="number" id="inp-pos-x" value="0"/></div>
+            <div class="prop-input-group"><span data-scrub="y">Y</span><input type="number" id="inp-pos-y" value="0"/></div>
+          </div>
+          <div class="prop-row">
+            <div class="prop-input-group"><span data-scrub="w">W</span><input type="number" id="inp-dim-w" value="100"/></div>
+            <div class="prop-input-group"><span data-scrub="h">H</span><input type="number" id="inp-dim-h" value="100"/></div>
+            <button class="prop-icon-btn" id="btn-lock-aspect" title="Constrain Proportions">🔗</button>
+          </div>
+          <div class="prop-row">
+            <div class="prop-input-group"><span data-scrub="rot">∠</span><input type="number" id="inp-rotation" value="0"/></div>
+            <div class="prop-input-group"><span data-scrub="radius">╭</span><input type="number" id="inp-corner-radius" value="0"/></div>
+          </div>
+        </div>
+
+        <!-- Auto Layout Section -->
+        <div class="prop-section" id="sec-auto-layout">
+          <div class="prop-section-header">
+            <span>Auto Layout</span>
+            <button class="prop-icon-btn" id="btn-toggle-autolayout" style="width:20px; height:20px;" title="Toggle Auto Layout (Shift+A)">+</button>
+          </div>
+          <div id="autolayout-controls" style="display:none; flex-direction:column; gap:8px;">
+            <div class="prop-row">
+              <span class="prop-label">Direction</span>
+              <div class="prop-btn-group" style="flex:1;">
+                <button class="prop-icon-btn active" id="al-dir-h" title="Horizontal" style="flex:1;">↔ Horizontal</button>
+                <button class="prop-icon-btn" id="al-dir-v" title="Vertical" style="flex:1;">↕ Vertical</button>
+              </div>
+            </div>
+            <div class="prop-row">
+              <div class="prop-input-group"><span data-scrub="gap">Gap</span><input type="number" id="al-gap" value="12"/></div>
+              <div class="prop-input-group"><span data-scrub="pad">Pad</span><input type="number" id="al-padding" value="16"/></div>
+            </div>
+            
+            <div class="prop-row" style="align-items:flex-start;">
+              <span class="prop-label" style="margin-top:4px;">Alignment</span>
+              <div class="align-matrix-3x3" id="al-align-matrix">
+                <div class="align-matrix-cell" data-pos="top-left">↖</div>
+                <div class="align-matrix-cell" data-pos="top-center">↑</div>
+                <div class="align-matrix-cell" data-pos="top-right">↗</div>
+                <div class="align-matrix-cell" data-pos="center-left">←</div>
+                <div class="align-matrix-cell active" data-pos="center">▪</div>
+                <div class="align-matrix-cell" data-pos="center-right">→</div>
+                <div class="align-matrix-cell" data-pos="bottom-left">↙</div>
+                <div class="align-matrix-cell" data-pos="bottom-center">↓</div>
+                <div class="align-matrix-cell" data-pos="bottom-right">↘</div>
+              </div>
+            </div>
+
+            <div class="prop-row">
+              <span class="prop-label">Primary</span>
+              <select id="al-primary-sizing" style="flex:1;">
+                <option value="fixed">Fixed</option>
+                <option value="hug">Hug Contents</option>
+              </select>
+            </div>
+            <div class="prop-row">
+              <span class="prop-label">Counter</span>
+              <select id="al-counter-sizing" style="flex:1;">
+                <option value="fixed">Fixed</option>
+                <option value="hug">Hug Contents</option>
+                <option value="fill">Fill Container</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Constraints Section -->
+        <div class="prop-section" id="sec-constraints">
+          <div class="prop-section-header">
+            <span>Constraints</span>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="constraints-diagram">
+              <div class="constraints-inner-box"></div>
+              <div class="constraint-pin pin-top active" data-axis="v" data-val="top" title="Top"></div>
+              <div class="constraint-pin pin-bottom" data-axis="v" data-val="bottom" title="Bottom"></div>
+              <div class="constraint-pin pin-left active" data-axis="h" data-val="left" title="Left"></div>
+              <div class="constraint-pin pin-right" data-axis="h" data-val="right" title="Right"></div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
+              <div>
+                <span class="prop-label" style="display:block; margin-bottom:2px;">Horizontal</span>
+                <select id="sel-constraint-h" style="width:100%;">
+                  <option value="left">Left</option>
+                  <option value="right">Right</option>
+                  <option value="left-right">Left & Right</option>
+                  <option value="center">Center</option>
+                  <option value="scale">Scale</option>
+                </select>
+              </div>
+              <div>
+                <span class="prop-label" style="display:block; margin-bottom:2px;">Vertical</span>
+                <select id="sel-constraint-v" style="width:100%;">
+                  <option value="top">Top</option>
+                  <option value="bottom">Bottom</option>
+                  <option value="top-bottom">Top & Bottom</option>
+                  <option value="center">Center</option>
+                  <option value="scale">Scale</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layout Grid (Frames Only) -->
+        <div class="prop-section" id="sec-layout-grid" style="display:none;">
+          <div class="prop-section-header">
+            <span>Layout Grid</span>
+            <button class="prop-icon-btn" id="btn-add-layout-grid" style="width:20px; height:20px;">+</button>
+          </div>
+          <div id="layout-grids-list"></div>
+        </div>
+
+        <!-- Fill Section & Gradient Editor -->
+        <div class="prop-section">
+          <div class="prop-section-header">
+            <span>Fill</span>
+            <button class="prop-icon-btn" id="btn-add-fill" style="width:20px; height:20px;">+</button>
+          </div>
+          <div id="fill-layers-list"></div>
+        </div>
+
+        <!-- Stroke Section -->
+        <div class="prop-section">
+          <div class="prop-section-header">
+            <span>Stroke</span>
+            <button class="prop-icon-btn" id="btn-add-stroke" style="width:20px; height:20px;">+</button>
+          </div>
+          <div id="stroke-layers-list"></div>
+        </div>
+
+        <!-- Effects Section -->
+        <div class="prop-section">
+          <div class="prop-section-header">
+            <span>Effects</span>
+            <button class="prop-icon-btn" id="btn-add-effect" style="width:20px; height:20px;">+</button>
+          </div>
+          <div id="effects-layers-list"></div>
+        </div>
+
+        <!-- Blend Mode & Opacity -->
+        <div class="prop-section">
+          <div class="prop-section-header">
+            <span>Layer Blend</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-label">Mode</span>
+            <select id="layer-blend-mode" style="flex:1;">
+              <option value="source-over">Normal</option>
+              <option value="darken">Darken</option>
+              <option value="multiply">Multiply</option>
+              <option value="color-burn">Color Burn</option>
+              <option value="lighten">Lighten</option>
+              <option value="screen">Screen</option>
+              <option value="color-dodge">Color Dodge</option>
+              <option value="overlay">Overlay</option>
+              <option value="soft-light">Soft Light</option>
+              <option value="hard-light">Hard Light</option>
+              <option value="difference">Difference</option>
+              <option value="exclusion">Exclusion</option>
+              <option value="hue">Hue</option>
+              <option value="saturation">Saturation</option>
+              <option value="color">Color</option>
+              <option value="luminosity">Luminosity</option>
+            </select>
+          </div>
+          <div class="prop-row">
+            <span class="prop-label">Opacity</span>
+            <input type="range" id="layer-opacity-slider" min="0" max="100" value="100" style="flex:1;" />
+            <input type="number" id="layer-opacity-val" min="0" max="100" value="100" style="width:40px;" />%
+          </div>
+        </div>
+
+        <!-- Typography (Text Elements) -->
+        <div class="prop-section" id="sec-text-props" style="display:none;">
+          <div class="prop-section-header">
+            <span>Typography</span>
+          </div>
+          <div class="prop-row">
+            <select id="text-font-family" style="flex:1;">
+              <option value="-apple-system, BlinkMacSystemFont, sans-serif">System Sans</option>
+              <option value="'Inter', sans-serif">Inter</option>
+              <option value="'Roboto', sans-serif">Roboto</option>
+              <option value="'Georgia', serif">Georgia</option>
+              <option value="'Courier New', monospace">Monospace</option>
+            </select>
+            <select id="text-font-weight" style="width:85px;">
+              <option value="300">Light</option>
+              <option value="400" selected>Regular</option>
+              <option value="500">Medium</option>
+              <option value="600">SemiBold</option>
+              <option value="700">Bold</option>
+              <option value="900">Black</option>
+            </select>
+          </div>
+          <div class="prop-row">
+            <div class="prop-input-group"><span data-scrub="fontsize">Size</span><input type="number" id="text-font-size" value="16"/></div>
+            <div class="prop-input-group"><span data-scrub="lineheight">Line</span><input type="number" id="text-line-height" value="22"/></div>
+          </div>
+          <div class="prop-row">
+            <div class="prop-input-group"><span data-scrub="spacing">Spacing</span><input type="number" id="text-letter-spacing" value="0" step="0.5"/></div>
+            <div class="prop-btn-group" style="flex:1;">
+              <button class="prop-icon-btn active" id="btn-align-txt-left" title="Left">⇤</button>
+              <button class="prop-icon-btn" id="btn-align-txt-center" title="Center">⇋</button>
+              <button class="prop-icon-btn" id="btn-align-txt-right" title="Right">⇥</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Component Instance Props -->
+        <div class="prop-section" id="sec-component-props" style="display:none;">
+          <div class="prop-section-header">
+            <span style="color:var(--purple);">Component</span>
+          </div>
+          <div class="prop-row" style="gap:6px;">
+            <button class="btn-purple" id="btn-create-instance" style="flex:1; padding:5px;">Create Instance</button>
+            <button class="menu-btn" id="btn-detach-instance" style="flex:1; padding:5px;">Detach (Ctrl+Alt+B)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTOTYPE TAB -->
+      <div class="panel-content prop-scroll-body" id="panel-tab-prototype" style="display:none; padding:12px;">
+        <div style="font-weight:600; font-size:12px; margin-bottom:8px; color:#fff;">Element Interactions</div>
+        <div id="proto-interactions-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+        <button class="btn-primary" id="btn-add-interaction" style="margin-top:10px; width:100%;">+ Add Interaction</button>
+
+        <div class="prop-section" style="margin-top:16px; border-top:1px solid var(--border-color); padding-top:12px; padding-left:0; padding-right:0;">
+          <div class="prop-section-header">
+            <span>Overflow Behavior</span>
+          </div>
+          <div class="prop-row" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:6px;">
+            <label style="display:flex; align-items:center; gap:4px; font-size:11px; cursor:pointer;"><input type="radio" name="proto-overflow" value="none" checked /> No Scroll</label>
+            <label style="display:flex; align-items:center; gap:4px; font-size:11px; cursor:pointer;"><input type="radio" name="proto-overflow" value="horizontal" /> Horizontal</label>
+            <label style="display:flex; align-items:center; gap:4px; font-size:11px; cursor:pointer;"><input type="radio" name="proto-overflow" value="vertical" /> Vertical</label>
+            <label style="display:flex; align-items:center; gap:4px; font-size:11px; cursor:pointer;"><input type="radio" name="proto-overflow" value="both" /> Both Axes</label>
+          </div>
+        </div>
+
+        <div class="prop-section" style="padding-left:0; padding-right:0;">
+          <div class="prop-section-header">
+            <span>Flow & Device Settings</span>
+          </div>
+          <div class="prop-row">
+            <label style="display:flex; align-items:center; gap:6px; font-size:11px; cursor:pointer;">
+              <input type="checkbox" id="proto-starting-frame" /> Starting Frame for Flow
+            </label>
+          </div>
+          <div class="prop-row">
+            <span class="prop-label">Flow Name</span>
+            <input type="text" id="proto-flow-name" value="Flow 1" style="flex:1;" />
+          </div>
+          <div class="prop-row">
+            <span class="prop-label">Device</span>
+            <select id="proto-device-select" style="flex:1;">
+              <option value="none">None (Direct Canvas)</option>
+              <option value="iphone">iPhone 14 Pro (393 × 852)</option>
+              <option value="ipad">iPad (768 × 1024)</option>
+              <option value="desktop">Desktop (1440 × 900)</option>
+              <option value="custom">Custom Size</option>
+            </select>
+          </div>
+          <div class="prop-row">
+            <span class="prop-label">Canvas Bg</span>
+            <input type="color" id="proto-bg-color" value="#0e0e12" style="width:36px; height:24px; padding:0; border:none; cursor:pointer;" />
+          </div>
+        </div>
+      </div>
+
+      <!-- INSPECT / DEV MODE TAB -->
+      <div class="panel-content prop-scroll-body" id="panel-tab-inspect" style="display:none; padding:12px;">
+        <div style="font-weight:600; font-size:12px; margin-bottom:10px; color:#fff; display:flex; justify-content:space-between; align-items:center;">
+          <span>Developer Handoff</span>
+          <span style="font-size:10px; color:var(--text-muted);">Real-Time Code Gen</span>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="prop-label" style="font-weight:600; color:#fff;">CSS Stylesheet</span>
+            <button class="menu-btn" id="btn-copy-css" style="font-size:10px;">Copy CSS</button>
+          </div>
+          <div class="code-preview-block" id="inspect-css-code">/* Select an element */</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="prop-label" style="font-weight:600; color:#fff;">React JSX</span>
+            <button class="menu-btn" id="btn-copy-react" style="font-size:10px;">Copy React</button>
+          </div>
+          <div class="code-preview-block" id="inspect-react-code">// Select an element</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="prop-label" style="font-weight:600; color:#fff;">iOS Swift (UIKit)</span>
+            <button class="menu-btn" id="btn-copy-swift" style="font-size:10px;">Copy Swift</button>
+          </div>
+          <div class="code-preview-block" id="inspect-swift-code">// Select an element</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="prop-label" style="font-weight:600; color:#fff;">Android Kotlin</span>
+            <button class="menu-btn" id="btn-copy-kotlin" style="font-size:10px;">Copy Kotlin</button>
+          </div>
+          <div class="code-preview-block" id="inspect-kotlin-code">// Select an element</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="prop-label" style="font-weight:600; color:#fff;">Flutter Dart</span>
+            <button class="menu-btn" id="btn-copy-flutter" style="font-size:10px;">Copy Dart</button>
+          </div>
+          <div class="code-preview-block" id="inspect-flutter-code">// Select an element</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <span class="prop-label" style="font-weight:600; color:#fff; display:block; margin-bottom:4px;">Element Properties Table</span>
+          <table class="prop-table" id="inspect-props-table">
+            <thead>
+              <tr><th>Property</th><th>Value (Click to copy)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="2" style="color:var(--text-muted); text-align:center;">No selection</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Media / Compression section -->
+  <div id="media-workspace" class="workspace media-ws" hidden></div>
+  <!-- 3D section -->
+  <div id="space3d-workspace" class="workspace" hidden></div>
+
+  <!-- Status Bar -->
+  <footer id="status-bar">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span id="sb-coords">X: 0 Y: 0</span>
+      <span id="sb-selection-info">No selection</span>
+      <span id="sb-elem-count">0 elements</span>
+      <span id="sb-section" class="sb-section"></span>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span id="sb-hint">V: Select | Space+Drag: Pan | Ctrl+Scroll: Zoom</span>
+      <span id="sb-grid-snap">Grid: On | Snap: On</span>
+      <span id="sb-fps">60 FPS</span>
+      <span id="sb-zoom">100%</span>
+      <button id="sb-version" class="sb-version" type="button">v—</button>
+    </div>
+  </footer>
+</div>
+
+<!-- Complete Color Picker Popover -->
+<div id="color-picker-popover">
+  <div id="color-sb-area">
+    <div id="color-sb-handle"></div>
+  </div>
+  <div id="hue-slider" class="slider-strip">
+    <div class="slider-handle" id="hue-handle"></div>
+  </div>
+  <div id="alpha-slider" class="slider-strip">
+    <div class="slider-handle" id="alpha-handle"></div>
+  </div>
+
+  <div class="prop-row" style="margin-top:2px;">
+    <select id="color-format-select" style="width:65px;">
+      <option value="hex">HEX</option>
+      <option value="rgb">RGB</option>
+      <option value="hsl">HSL</option>
+    </select>
+    <div id="color-inputs-hex" style="display:flex; flex:1; gap:4px;">
+      <input type="text" id="color-hex-val" value="#0D99FF" style="flex:1;" />
+    </div>
+    <div id="color-inputs-rgb" style="display:none; flex:1; gap:3px;">
+      <input type="number" id="color-rgb-r" min="0" max="255" value="13" style="width:36px;" />
+      <input type="number" id="color-rgb-g" min="0" max="255" value="153" style="width:36px;" />
+      <input type="number" id="color-rgb-b" min="0" max="255" value="255" style="width:36px;" />
+    </div>
+    <div id="color-inputs-hsl" style="display:none; flex:1; gap:3px;">
+      <input type="number" id="color-hsl-h" min="0" max="360" value="205" style="width:36px;" />
+      <input type="number" id="color-hsl-s" min="0" max="100" value="100" style="width:36px;" />
+      <input type="number" id="color-hsl-l" min="0" max="100" value="53" style="width:36px;" />
+    </div>
+    <input type="number" id="color-alpha-val" min="0" max="100" value="100" style="width:42px;" />%
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px;">
+    <span style="font-size:10px; color:var(--text-muted);">Preview Swatches</span>
+    <button class="prop-icon-btn" id="btn-picker-eyedropper" title="Pick Screen Color" style="width:20px; height:20px;">💉</button>
+  </div>
+  <div style="display:flex; height:26px; border-radius:4px; overflow:hidden; border:1px solid var(--border-color);">
+    <div id="picker-old-swatch" style="flex:1; background:#fff;" title="Original Color"></div>
+    <div id="picker-new-swatch" style="flex:1; background:#0d99ff;" title="New Color"></div>
+  </div>
+
+  <div style="font-size:10px; color:var(--text-muted); margin-top:4px;">Recent Colors</div>
+  <div class="color-swatch-row" id="picker-recent-colors"></div>
+
+  <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Document Colors</div>
+  <div class="color-swatch-row" id="picker-doc-colors"></div>
+</div>
+
+<!-- Enhanced Context Menu -->
+<div id="ctx-menu">
+  <div class="ctx-item" data-action="cut">Cut <span class="ctx-shortcut">Ctrl+X</span></div>
+  <div class="ctx-item" data-action="copy">Copy <span class="ctx-shortcut">Ctrl+C</span></div>
+  <div class="ctx-item" data-action="paste">Paste <span class="ctx-shortcut">Ctrl+V</span></div>
+  <div class="ctx-item" data-action="duplicate">Duplicate <span class="ctx-shortcut">Ctrl+D</span></div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" data-action="delete">Delete <span class="ctx-shortcut">Del</span></div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" data-action="group">Group Selection <span class="ctx-shortcut">Ctrl+G</span></div>
+  <div class="ctx-item" data-action="ungroup">Ungroup <span class="ctx-shortcut">Ctrl+Shift+G</span></div>
+  <div class="ctx-item" data-action="frame">Frame Selection <span class="ctx-shortcut">Ctrl+Alt+G</span></div>
+  <div class="ctx-item" data-action="autoLayout">Add Auto Layout <span class="ctx-shortcut">Shift+A</span></div>
+  <div class="ctx-item" data-action="createComp">Create Component <span class="ctx-shortcut">Ctrl+Alt+K</span></div>
+  <div class="ctx-item" data-action="detachComp">Detach Instance <span class="ctx-shortcut">Ctrl+Alt+B</span></div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" data-action="front">Bring to Front <span class="ctx-shortcut">Ctrl+Shift+]</span></div>
+  <div class="ctx-item" data-action="forward">Bring Forward <span class="ctx-shortcut">Ctrl+]</span></div>
+  <div class="ctx-item" data-action="backward">Send Backward <span class="ctx-shortcut">Ctrl+[</span></div>
+  <div class="ctx-item" data-action="back">Send to Back <span class="ctx-shortcut">Ctrl+Shift+[</span></div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" data-action="flipH">Flip Horizontal <span class="ctx-shortcut">Shift+H</span></div>
+  <div class="ctx-item" data-action="flipV">Flip Vertical <span class="ctx-shortcut">Shift+V</span></div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" data-action="toggleLock">Lock / Unlock <span class="ctx-shortcut">Ctrl+Shift+L</span></div>
+  <div class="ctx-item" data-action="toggleVis">Hide / Show <span class="ctx-shortcut">Ctrl+Shift+H</span></div>
+  <div class="ctx-item" data-action="copyCSS">Copy as CSS</div>
+  <div class="ctx-item" data-action="copySVG">Copy as SVG</div>
+  <div class="ctx-item" data-action="openExport">Export Selection...</div>
+</div>
+
+<!-- 4-Tab Complete Export Modal -->
+<div class="modal-overlay" id="export-modal">
+  <div class="modal-window" style="width: 680px;">
+    <div class="modal-header">
+      <span>Studio Export Suite</span>
+      <button class="prop-icon-btn" id="btn-close-export" style="background:transparent; border:none; color:#fff;">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="panel-tabs" style="margin-bottom:14px;">
+        <button class="panel-tab-btn active" data-exp-tab="image">Image / Graphic</button>
+        <button class="panel-tab-btn" data-exp-tab="animation">Animation & Video</button>
+        <button class="panel-tab-btn" data-exp-tab="code">Production Code</button>
+        <button class="panel-tab-btn" data-exp-tab="project">Project File</button>
+      </div>
+
+      <!-- TAB 1: IMAGE EXPORT -->
+      <div class="exp-tab-content" id="exp-tab-image">
+        <div style="display:grid; grid-template-columns: 1fr 180px; gap:16px;">
+          <div>
+            <div class="prop-row">
+              <span class="prop-label">Format:</span>
+              <select id="exp-img-format" style="flex:1;">
+                <option value="png">PNG (Lossless with Alpha)</option>
+                <option value="jpeg">JPEG (Compressed)</option>
+                <option value="webp">WebP (Modern Web Graphic)</option>
+                <option value="svg">SVG (Scalable Vector XML)</option>
+              </select>
+            </div>
+            <div class="prop-row">
+              <span class="prop-label">Scale:</span>
+              <select id="exp-img-scale" style="flex:1;">
+                <option value="0.5">0.5x</option>
+                <option value="1" selected>1x (Standard)</option>
+                <option value="2">2x (@2x Retina)</option>
+                <option value="3">3x (@3x Ultra)</option>
+                <option value="4">4x (@4x Print)</option>
+              </select>
+            </div>
+            <div class="prop-row" id="exp-quality-row">
+              <span class="prop-label">Quality:</span>
+              <input type="range" id="exp-img-quality" min="10" max="100" value="92" style="flex:1;" />
+              <span id="exp-quality-val" style="width:32px; font-family:var(--font-mono);">92%</span>
+            </div>
+            <div class="prop-row">
+              <span class="prop-label">Background:</span>
+              <select id="exp-img-bg" style="flex:1;">
+                <option value="transparent">Transparent</option>
+                <option value="#ffffff">Pure White (#FFF)</option>
+                <option value="#1a1a2e">Canvas Background (#1A1A2E)</option>
+                <option value="custom">Custom Color</option>
+              </select>
+              <input type="color" id="exp-img-custom-bg" value="#ffffff" style="display:none; width:30px; height:22px; padding:0; border:none;" />
+            </div>
+            <div class="prop-row">
+              <span class="prop-label">Scope:</span>
+              <select id="exp-img-scope" style="flex:1;">
+                <option value="selected">Selected Elements</option>
+                <option value="all">Entire Canvas Scene</option>
+                <option value="frame">Specific Frame...</option>
+              </select>
+            </div>
+            <div class="prop-row" id="exp-frame-select-row" style="display:none;">
+              <span class="prop-label">Frame:</span>
+              <select id="exp-img-frame-choice" style="flex:1;"></select>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+            <span style="font-size:10px; color:var(--text-muted);">Preview Thumbnail</span>
+            <div style="width:160px; height:120px; background:#111; border:1px solid var(--border-color); border-radius:6px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <img id="exp-image-preview-thumb" style="max-width:100%; max-height:100%; object-fit:contain;" />
+            </div>
+            <button class="menu-btn" id="btn-refresh-exp-thumb" style="width:100%; font-size:10px;">Update Preview</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: ANIMATION EXPORT -->
+      <div class="exp-tab-content" id="exp-tab-animation" style="display:none;">
+        <div class="prop-row">
+          <span class="prop-label">Target Type:</span>
+          <select id="exp-anim-type" style="flex:1;">
+            <option value="video">MP4 / WebM Canvas Video Recording</option>
+            <option value="css">CSS @keyframes Animation Code</option>
+            <option value="lottie">Lottie-Compatible JSON Motion</option>
+            <option value="spritesheet">2D Sprite Sheet Matrix</option>
+            <option value="apng">APNG / Animated PNG Sequence</option>
+          </select>
+        </div>
+        <div class="prop-row">
+          <span class="prop-label">Framerate:</span>
+          <select id="exp-anim-fps" style="width:80px;">
+            <option value="12">12 FPS</option>
+            <option value="24">24 FPS</option>
+            <option value="30" selected>30 FPS</option>
+            <option value="60">60 FPS</option>
+          </select>
+          <span class="prop-label" style="min-width:auto;">Duration:</span>
+          <input type="number" id="exp-anim-duration" value="5" min="1" max="60" style="width:45px;" />s
+        </div>
+        <div style="margin-top:10px;">
+          <div style="font-weight:600; font-size:11px; margin-bottom:4px; color:#fff;">Animation Output Preview</div>
+          <textarea id="exp-anim-code-output" style="width:100%; height:130px; font-family:var(--font-mono); font-size:11px; resize:none;" readonly></textarea>
+        </div>
+      </div>
+
+      <!-- TAB 3: CODE EXPORT -->
+      <div class="exp-tab-content" id="exp-tab-code" style="display:none;">
+        <div class="prop-row">
+          <span class="prop-label">Type:</span>
+          <select id="exp-code-type" style="width:160px;">
+            <option value="full-webpage">HTML + CSS Webpage</option>
+            <option value="css-only">CSS Stylesheet Only</option>
+            <option value="svg-raw">Clean SVG Markup</option>
+            <option value="tokens">Design Tokens (JSON)</option>
+          </select>
+          <span class="prop-label" style="min-width:auto;">Framework:</span>
+          <select id="exp-code-framework" style="flex:1;">
+            <option value="plain">Vanilla HTML/CSS</option>
+            <option value="react">React Component (JSX)</option>
+            <option value="vue">Vue 3 Single File Component</option>
+            <option value="svelte">Svelte Component</option>
+          </select>
+        </div>
+        <div class="prop-row">
+          <span class="prop-label">CSS Mode:</span>
+          <select id="exp-code-css-mode" style="width:160px;">
+            <option value="plain">Clean Standard CSS</option>
+            <option value="bem">BEM Methodology</option>
+            <option value="tailwind">Tailwind CSS Classes</option>
+          </select>
+          <button class="menu-btn" id="btn-copy-exp-code" style="margin-left:auto;">Copy Code</button>
+        </div>
+        <textarea id="exp-code-output-area" style="width:100%; height:170px; font-family:var(--font-mono); font-size:11px; resize:none; margin-top:8px;" readonly></textarea>
+      </div>
+
+      <!-- TAB 4: PROJECT FILE EXPORT -->
+      <div class="exp-tab-content" id="exp-tab-project" style="display:none;">
+        <p style="color:var(--text-muted); font-size:11.5px; line-height:1.5; margin-bottom:14px;">
+          Save your complete studio workspace including elements, pages, animations, styles, components, and prototype interactions.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <button class="btn-primary" id="btn-download-studio-json" style="padding:10px;">
+            Save as Native .designstudio.json
+          </button>
+          <button class="menu-btn" id="btn-export-figma-json" style="padding:10px;">
+            Export as Figma-Compatible JSON
+          </button>
+          <div class="dropdown-sep"></div>
+          <button class="menu-btn" id="btn-modal-import-json" style="padding:10px;">
+            Import .designstudio.json Project File...
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="menu-btn" id="btn-cancel-export">Close</button>
+      <button class="btn-primary" id="btn-confirm-export">Download Asset</button>
+    </div>
+  </div>
+</div>
+
+<!-- Interactive Prototype Fullscreen Modal -->
+<div id="prototype-modal">
+  <div id="proto-top-nav">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="menu-btn" id="btn-proto-restart" title="Restart Flow">↺ Restart</button>
+      <button class="menu-btn" id="btn-proto-toggle-hints" title="Show Clickable Hotspots">💡 Hints</button>
+      <span style="font-weight:600; font-size:12px; color:#fff;" id="proto-flow-title">Interactive Prototype</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <select id="proto-modal-device" style="background:#1e1e24;">
+        <option value="none">No Frame</option>
+        <option value="iphone" selected>iPhone 14 Pro</option>
+        <option value="ipad">iPad</option>
+        <option value="desktop">Desktop</option>
+      </select>
+      <button class="btn-danger" id="btn-proto-close">✕ Close Preview</button>
+    </div>
+  </div>
+  <div id="proto-viewport-wrap">
+    <div class="proto-device-frame" id="proto-frame-wrapper">
+      <canvas id="proto-canvas"></canvas>
+      <div id="proto-hotspot-layer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden File Importer -->
+<input type="file" id="file-importer" accept=".json,.svg,.png,.jpg,.jpeg,.webp,.gif" style="display:none;" />
+
+<!-- Toast Notifications Layer -->
+<div id="toast-container"></div>
+
+<script src="js/core/compat.js"></script>
+<script src="js/core/diagnostics-core.js"></script>
+<script src="js/core/utils.js"></script>
+<script src="js/core/embedded.js"></script>
+<script src="js/shell/icons.js"></script>
+<script src="js/core/version.js"></script>
+<script src="js/core/model.js"></script>
+<script src="js/engine/renderer.js"></script>
+<script src="js/engine/exporters.js"></script>
+<script src="js/engine/statemachine.js"></script>
+<script src="js/engine/scene3d-core.js"></script>
+<script src="js/engine/interactive-export.js"></script>
+<script src="js/design/app.js"></script>
+<script src="js/design/panels.js"></script>
+<script src="js/design/layers.js"></script>
+<script src="js/design/timeline.js"></script>
+<script src="js/design/animate.js"></script>
+<script src="js/design/triggers.js"></script>
+<script src="js/design/components.js"></script>
+<script src="js/shell/sections.js"></script>
+<script src="js/vendor/media-libs.js"></script>
+<script src="js/media/media-core.js"></script>
+<script src="js/media/media-ui.js"></script>
+<script src="js/space3d/space3d.js"></script>
+<script src="js/space3d/timeline3d.js"></script>
+<script src="js/media/media-guides.js"></script>
+<script src="js/space3d/guides3d.js"></script>
+<script src="js/shell/ui-shell.js"></script>
+<script src="js/design/prototype.js"></script>
+<script src="js/design/protoflow.js"></script>
+<script src="js/design/designsystem.js"></script>
+<script src="js/ai/ai-core.js"></script>
+<script src="js/ai/ai-ui.js"></script>
+<script src="js/design/export-ui.js"></script>
+<script src="js/design/autosave.js"></script>
+<script src="js/design/polish.js"></script>
+<script src="js/design/guides.js"></script>
+<script src="js/design/frames.js"></script>
+<script src="js/ai/mcp-host.js"></script>
+<script src="js/design/arrows.js"></script>
+<script src="js/shell/comments-sections.js"></script>
+<script src="js/shell/links.js"></script>
+<script src="js/space3d/link3d-edit.js"></script>
+<script src="js/space3d/perf3d.js"></script>
+<script src="js/shell/touch.js"></script>
+<script src="js/shell/brand.js"></script>
+<script src="js/shell/workspace.js"></script>
+<script src="js/shell/diagnostics.js"></script>
+<script src="js/shell/settings.js"></script>
+<script src="js/shell/plugins.js"></script>
+<script src="js/shell/standalone.js"></script>
+<script src="js/ai/github.js"></script>
+<script src="js/shell/handover.js"></script>
+<script src="js/core/security.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:">
+<title>DesignStudio User Guide</title>
+<style>
+:root { --bg: #f7f7f9; --panel: #ffffff; --text: #1b1b22; --sub: #5c5c6b; --line: #e3e3ea; --accent: #2f7cf6; --code: #f0f1f5; }
+@media (prefers-color-scheme: dark) { :root { --bg: #16161a; --panel: #1e1e23; --text: #ececf1; --sub: #a0a0ad; --line: #2e2e36; --accent: #5aa2ff; --code: #26262d; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+header { padding: 40px 24px 28px; border-bottom: 1px solid var(--line); background: var(--panel); }
+header .in, main, nav { max-width: 980px; margin: 0 auto; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand h1 { margin: 0; font-size: 26px; letter-spacing: -.01em; }
+.brand p { margin: 2px 0 0; color: var(--sub); }
+.wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; padding: 28px 24px 80px; }
+nav { position: sticky; top: 16px; align-self: start; font-size: 14px; }
+nav a { display: block; padding: 5px 10px; border-radius: 6px; color: var(--sub); text-decoration: none; }
+nav a:hover { background: var(--code); color: var(--text); }
+h2 { margin: 44px 0 10px; font-size: 21px; letter-spacing: -.01em; scroll-margin-top: 16px; }
+h2:first-child { margin-top: 0; }
+h3 { margin: 22px 0 6px; font-size: 16px; }
+p, li { color: var(--text); } .sub { color: var(--sub); }
+kbd, code { font: 12.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--sub); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 14px 0; }
+.tip { border-left: 3px solid var(--accent); }
+ol, ul { padding-left: 22px; }
+footer { color: var(--sub); font-size: 13px; text-align: center; padding: 24px; border-top: 1px solid var(--line); }
+@media (max-width: 760px) { .wrap { grid-template-columns: 1fr; } nav { position: static; display: flex; flex-wrap: wrap; gap: 4px; } }
+</style>
+</head>
+<body>
+<header><div class="in brand">
+  <svg class="ds-mark" width="48" height="48" viewBox="-9.9 8.6 97.2 97.2" aria-hidden="true"><defs><linearGradient id="ugs" x1="3.9" y1="27.0" x2="63.1" y2="100.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient><mask id="ugm" maskUnits="userSpaceOnUse" x="-50" y="-50" width="300" height="300"><rect x="-50" y="-50" width="300" height="300" fill="#fff"/><circle cx="61.8" cy="25.2" r="14.4" fill="#000"/></mask></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4Z" fill="url(#ugs)" mask="url(#ugm)"/><circle cx="61.8" cy="25.2" r="9.9" fill="#FFC21A"/></svg>
+  <div><h1>DesignStudio User Guide</h1><p>Design, motion, media and 3D — one studio, fully offline.</p></div>
+</div></header>
+
+<div class="wrap">
+<nav aria-label="Contents">
+  <a href="#start">Getting started</a><a href="#interface">The interface</a><a href="#design">Design</a><a href="#animate">Animate &amp; prototype</a><a href="#media">Media</a><a href="#3d">3D</a><a href="#links">Links between tabs</a><a href="#review">Comments &amp; versions</a><a href="#ai">AI &amp; AI apps</a><a href="#save">Saving &amp; exporting</a><a href="#touch">Touch &amp; pen</a><a href="#keys">Shortcuts</a><a href="#privacy">Privacy &amp; security</a><a href="#handover">Developer handover</a><a href="#plugins">Plugins</a><a href="#github">GitHub</a><a href="#settings">Settings</a><a href="#diagnostics">Diagnostics</a><a href="#help">Troubleshooting</a>
+</nav>
+<main>
+
+<h2 id="start">Getting started</h2>
+<ol>
+  <li>Open <b>DesignStudio.html</b> in Chrome or Edge (Firefox and Safari work too).</li>
+  <li>On the welcome screen choose <b>Design</b>, <b>Animate</b>, <b>Media</b> or <b>3D</b>, or start from a Desktop, Mobile or Tablet frame.</li>
+  <li>A six-step tour points out the essentials. Run it again any time from <b>About › Take the tour</b> (click the logo).</li>
+</ol>
+<div class="card tip">Everything runs in your browser. Your work autosaves in this browser — use <b>File › Save</b> for a portable <code>.designstudio.json</code> file you can back up or share.</div>
+
+<h2 id="interface">The interface</h2>
+<table>
+<tr><th>Area</th><th>What it does</th></tr>
+<tr><td>Top bar</td><td>Design / Media / 3D tabs, menus, <b>Edit / Animate</b>, zoom, Grid, Snap, Timeline, Links, Comments, Play, Export. The same bar works in every tab.</td></tr>
+<tr><td>Left</td><td>Tools (Design), Media tools, or the 3D add panel and scene outliner.</td></tr>
+<tr><td>Centre</td><td>Canvas, media stage or 3D viewport — with rulers and guides in all three.</td></tr>
+<tr><td>Right</td><td>Properties of the selection: Design, Prototype and Inspect tabs; Media tool options; 3D inspector.</td></tr>
+<tr><td>Status bar</td><td>Selection, zoom, grid / snap state and the version (click it for diagnostics).</td></tr>
+</table>
+<p class="sub">Every dialog can be dragged by its title bar; double-click the title to re-centre it. Drag the inner edge of the Layers or Properties panel to resize it, and press <kbd>Ctrl</kbd>+<kbd>\</kbd> (or <b>Panels</b> in the status bar) to hide both side panels for a full-width canvas.</p>
+
+<h2 id="design">Design</h2>
+<h3>Frames and shapes</h3>
+<p>Press <kbd>F</kbd> and pick a size (phone, tablet, desktop, social…) or drag on the canvas. Draw with <kbd>R</kbd> rectangle, <kbd>O</kbd> ellipse, <kbd>L</kbd> line, <kbd>Shift</kbd>+<kbd>L</kbd> arrow, <kbd>P</kbd> pen, <kbd>T</kbd> text. Drop images or SVG files straight onto the canvas.</p>
+<h3>Lines and arrows</h3>
+<p>Drag an end point to move it; drag the middle handle to curve the line. Arrow presets and end caps are in the Design panel.</p>
+<h3>Layout</h3>
+<p>Auto layout (<kbd>Shift</kbd>+<kbd>A</kbd>), constraints, layout grids, alignment and distribution are in the Design panel. Drag from a ruler to add a guide; drag it back to remove it.</p>
+<h3>Components and design system</h3>
+<p>Create a component with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. <b>View › Design System</b> manages variables and modes (light / dark), colour, text and effect styles, components, health checks and token import / export. Start from a preset system if you like.</p>
+
+<h2 id="animate">Animate &amp; prototype</h2>
+<p>Switch to <b>Animate</b> in the top bar — Auto-key turns on, so moving, resizing or recolouring the selected layer at a new time records a keyframe (an empty timeline shows the steps); edit easing in the timeline. State machines, inputs and triggers make interactive animation without code (Prototype tab › Triggers).</p>
+<p>For click-through prototypes, open the <b>Prototype</b> tab, select a layer and drag its ⊕ handle onto a frame. Press <b>Play</b> to try it.</p>
+
+<h2 id="media">Media</h2>
+<p>Open a GIF, video or images (or drop them). Tools on the left: resize, crop, rotate, trim, speed, reverse, frame delays, text, overlay, censor / blur, effects, transparency, GIF and video compression, and export to GIF, APNG, WebP, MP4, WebM, frames (ZIP) or sprite sheet.</p>
+<p><b>Animate</b> mode focuses on frame tools and opens the frame strip. Rulers and guides measure source pixels; Grid shows a pixel grid; Snap makes crops snap to guides and edges.</p>
+
+<h2 id="3d">3D</h2>
+<p>Add primitives and lights from the left panel, import <b>GLB / glTF (embedded) / OBJ / STL</b>, or <b>Extrude from Design</b>. Move / rotate / scale with <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd>; focus with <kbd>F</kbd>.</p>
+<h3>Timeline</h3>
+<p>Switch to <b>Animate</b> (auto-key on) and move objects, or press <kbd>K</kbd> to key the selection. In the dope sheet select keys (click, Shift, drag a box), drag them in time, copy / paste (<kbd>Ctrl</kbd>+<kbd>C</kbd>/<kbd>V</kbd>), change easing or draw a custom curve. <b>＋ Track</b> animates any property, including shape keys (geometry size) and model morph targets. Loop, ping-pong, speed and play range (<kbd>I</kbd> / <kbd>O</kbd>) are in the bar.</p>
+<h3>Guides</h3>
+<p>Drag from a viewport ruler to drop a guide plane; objects snap to guides while moving. <b>Guides</b> in the 3D toolbar adds guides through the selection and edits them.</p>
+<p><b>Export</b> gives PNG, GLB and an interactive 3D web page that keeps animations and triggers.</p>
+
+<h2 id="links">Links between tabs</h2>
+<p>Click <b>🔗 Links</b> in the top bar (or <b>To Design</b> in 3D, <b>Use in…</b> in Media):</p>
+<ul>
+  <li><b>3D view or object → Design</b> — an image layer that re-renders after every 3D edit. Select it to orbit, rotate, recolour and re-pose the object right in the Design panel, or double-click it to adjust on the canvas.</li>
+  <li><b>Media frame → Design or 3D</b> — updates after every Media edit.</li>
+  <li><b>Design layer → 3D</b> — an image plane, e.g. a UI screen on a 3D card; updates with your design.</li>
+</ul>
+<p class="sub">Unlink keeps the last image as a normal layer.</p>
+
+<h2 id="review">Comments &amp; versions</h2>
+<p>Press <kbd>C</kbd> (or the comment button) in any tab and click to pin a comment; in 3D pins stick to objects. <b>File › Save Version…</b> keeps named versions; <b>File › Share Package</b> exports a ZIP with the project, interactive HTML, previews and comments.</p>
+
+<h2 id="ai">AI &amp; AI apps</h2>
+<p><b>✦ AI</b> opens AI Studio: paste your own API key or a local model address, then ask for screens, edits, tokens, critique or code. Keys stay in this browser.</p>
+<p>AI Studio opens as its own column next to Properties, so you can keep editing what it makes; drag its left edge to resize it.</p>
+<p><b>AI apps</b> (Claude Desktop, Claude Code, Cursor, VS Code…) can read and edit the open file through the local bridge in <code>mcp/</code> (needs Node.js 18+; see <code>mcp/README.md</code>). The bridge only listens on this computer and pairs with your DesignStudio tab.</p>
+
+<h2 id="save">Saving &amp; exporting</h2>
+<table>
+<tr><th>Format</th><th>Use</th></tr>
+<tr><td>.designstudio.json</td><td>The project — everything, including 3D and links</td></tr>
+<tr><td>PNG · SVG · animated SVG</td><td>Images and vector graphics</td></tr>
+<tr><td>HTML / CSS / Tailwind / React / Vue / Svelte / SwiftUI / Flutter</td><td>Developer handoff (Inspect tab and Export › Code)</td></tr>
+<tr><td>Lottie · CSS keyframes · video · GIF</td><td>Motion — Lottie keeps text and effects as embedded images (the dialog lists anything it cannot keep)</td></tr>
+<tr><td>Interactive HTML · 3D web page</td><td>Prototypes and 3D experiences that run anywhere</td></tr>
+</table>
+
+<h2 id="touch">Touch &amp; pen</h2>
+<p>One finger uses the current tool, two fingers pinch to zoom and pan, long-press opens the context menu. A pen works like a mouse with palm rejection; its barrel button opens the context menu.</p>
+
+<h2 id="keys">Shortcuts</h2>
+<p>Press <kbd>?</kbd> in the app for the full list. The essentials:</p>
+<table>
+<tr><th>Keys</th><th>Action</th></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd></td><td>Undo / redo</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd> · <kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Save · Export</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd></td><td>Design / Media / 3D</td></tr>
+<tr><td><kbd>V</kbd> <kbd>F</kbd> <kbd>R</kbd> <kbd>O</kbd> <kbd>T</kbd> <kbd>P</kbd></td><td>Select, frame, rectangle, ellipse, text, pen</td></tr>
+<tr><td><kbd>Space</kbd>+drag · <kbd>Ctrl</kbd>+wheel · <kbd>Shift</kbd>+<kbd>1</kbd></td><td>Pan · zoom · zoom to fit</td></tr>
+<tr><td><kbd>C</kbd></td><td>Comments</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>,</kbd></td><td>Settings</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>4</kbd></td><td>Handover tab</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>Commit selection to Handover</td></tr>
+</table>
+
+<h2 id="privacy">Privacy &amp; security</h2>
+<ul>
+  <li>No account, no upload, no tracking: DesignStudio makes no network requests of its own.</li>
+  <li>Files you open are checked: hostile project files, oversized "bomb" images, SVGs with scripts and 3D models that point to the internet are neutralised or refused with a message.</li>
+  <li>A strict Content-Security-Policy stops any injected or remote script from running.</li>
+  <li>AI providers you connect are contacted only when you use AI, over HTTPS (or on this computer).</li>
+</ul>
+
+<h2 id="handover">Developer handover</h2>
+<p>The <b>Handover</b> tab (next to 3D, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>4</kbd>) is where developers pick up finished designs.</p>
+<ol>
+<li><b>Commit:</b> in Design, select the finished screens. <kbd>Ctrl</kbd>+<kbd>A</kbd> selects everything; selecting a layer inside a frame counts as its whole screen. A <b>Commit to Handover</b> button appears at the bottom of the canvas (or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Enter</kbd>). Add a title and a note, then commit. DesignStudio saves a frozen, numbered version (v1, v2…) and opens it in Handover. Later edits in Design don't change it.</li>
+<li><b>Inspect:</b> click any layer on the screen to see its specs: size, position, spacing to its screen and parent, colours, type and effects. It also offers code (CSS, React, SwiftUI, Jetpack Compose, Flutter) and assets (SVG, or PNG at 1×, 2× and 3×). Select one layer and hover another to measure the distance between them. <kbd>Esc</kbd> clears the selection.</li>
+<li><b>Track:</b> each version has a status: Ready for development, In development, Changes requested or Done. A version shows what changed since the previous version of the same screens, with changed and added layers highlighted on the screen.</li>
+<li><b>Hand off:</b> <b>Download package</b> makes a .zip with a README, <code>spec.json</code> (every layer, relative to its screen, with notes), <code>tokens.json</code>, screen previews, HTML + CSS and React code, and the original images. Designers can leave a <b>Note for developers</b> on any layer.</li>
+</ol>
+<p>Handover versions are saved in the project file, so they travel with it.</p>
+
+<h2 id="plugins">Plugins</h2>
+<p>Plugins add your own tools. Open <b>Plugins › Plugin Studio…</b> to write, test and install them; installed plugins appear in the <b>Plugins</b> menu.</p>
+<ol>
+<li><b>Start</b> from a template (Grid of shapes, Rename layers, Recolour, Distribute, Confetti, Blank), or type what you want in the AI box and press <b>Write with AI</b>. AI needs a connection in the AI panel.</li>
+<li><b>Run</b> it (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>). Output and errors appear under the code. Each run is one undo step.</li>
+<li><b>Save</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) and tick <b>In Plugins menu</b>. <b>Export…</b> makes a <code>.dsplugin</code> file to share; <b>Plugins › Import Plugin…</b> installs one after showing what it asks for.</li>
+</ol>
+<p>Plugins run in a sandbox with no access to the page, your files or the internet. They can only use what you allow: <b>read</b> layers, <b>write</b> (create, change, delete), <b>ui</b> (ask you with a small form) and <b>network</b> (https, only the domains listed). A run is stopped after 10 seconds of work or 5,000 changes. Only install plugins from people you trust.</p>
+<table><tr><th>Call</th><th>Does</th></tr>
+<tr><td><code>ds.selection()</code> · <code>ds.layers()</code> · <code>ds.get(id)</code></td><td>Read layers (x, y, width, height, fills, text…)</td></tr>
+<tr><td><code>ds.create(type, props)</code> · <code>ds.update(id, props)</code></td><td>Make or change a layer: rect, ellipse, line, arrow, polygon, star, text, frame</td></tr>
+<tr><td><code>ds.remove(ids)</code> · <code>ds.select(ids)</code></td><td>Delete or select layers</td></tr>
+<tr><td><code>ds.ask(title, fields)</code></td><td>A form: number, text, colour, select or checkbox. Returns the values, or null when cancelled</td></tr>
+<tr><td><code>ds.viewport()</code> · <code>ds.notify(text)</code> · <code>ds.storage.get/set</code> · <code>ds.fetch(url)</code></td><td>View centre and size · a message · saved plugin settings · a web request (network)</td></tr>
+</table>
+
+<h2 id="github">GitHub repos</h2>
+<p>Bring icons, images, plugins and design tokens in from any GitHub repository.</p>
+<ul>
+<li><b>File › Import from GitHub…</b>: type <code>owner/repo</code> or paste a github.com link (a folder link opens that folder). Tick the SVGs, images or <code>.dsplugin</code> files you want, then press <b>Import</b>. SVGs become editable layers.</li>
+<li><b>With AI</b>: ask in the AI panel, for example “import the arrow icons from owner/repo” or “turn the tokens in owner/repo into variables”. The AI lists and reads the repo, and nothing is imported until you confirm.</li>
+<li><b>Private repos</b>: open “Add a token” and paste a fine-grained token from github.com › Settings › Developer settings with <b>Contents: Read-only</b>. It is kept for this session only unless you tick <b>Remember on this device</b>, and it is never written to logs. Without a token, GitHub allows 60 requests an hour.</li>
+</ul>
+<p>DesignStudio only reads from GitHub and never runs code from a repo. Plugins from a repo go through the normal permission prompt and run in the plugin sandbox.</p>
+
+<h2 id="settings">Settings</h2>
+<p>Open <b>Edit › Settings…</b> or press <kbd>Ctrl</kbd>+<kbd>,</kbd>. Changes apply straight away and are saved in this browser. <b>Reset to defaults</b> undoes them.</p>
+<ul>
+<li><b>Undo steps</b> (10–100, default 100): how far <kbd>Ctrl</kbd>+<kbd>Z</kbd> goes back. Steps share the unchanged parts of your document, so 100 steps of a large file usually take only a few MB.</li>
+<li><b>Undo memory limit</b> (200 MB–1.5 GB): a safety net for very large documents. If history would use more, the oldest steps are dropped, but at least 10 are always kept.</li>
+<li><b>3D performance</b>: <b>Auto</b> (recommended) lowers resolution while you orbit, drag or play and returns to full sharpness when you stop. On very heavy scenes it also simplifies shadows. <b>Quality</b>, <b>Balanced</b> and <b>Performance</b> are fixed presets. <b>Custom</b> lets you set shadows, shadow resolution, sharpness on high-DPI screens and resolution while moving.</li>
+</ul>
+<p>Shadows are cached in every mode, so moving the camera doesn't redraw them. Exports always render at full quality. The dialog shows live numbers for undo memory and the 3D view.</p>
+
+<h2 id="diagnostics">Diagnostics &amp; health</h2>
+<p>The dot at the bottom right of the status bar shows how the app is doing: <b>green</b> means healthy, <b>amber</b> means check, and <b>red</b> means there's an issue. Click it, choose <b>Help › Diagnostics…</b>, or press <kbd>Ctrl+Alt+D</kbd>. Everything is measured inside your browser and is never sent anywhere.</p>
+<table>
+<tr><th>Tab</th><th>What it shows</th></tr>
+<tr><td>Overview</td><td><b>Memory</b> (JavaScript heap and undo history size) · <b>Main thread (CPU)</b>, the share of the last 10 s the app was blocked by long tasks (browsers don't expose CPU %) · <b>Responsiveness</b> (event-loop delay) · <b>Frame rate</b> · <b>Storage</b> · <b>API response time</b> · <b>Errors</b>, each with a short history.</td></tr>
+<tr><td>Logs</td><td>Errors, warnings and app events. Filter, search, copy or export them as .txt. Tick <b>Previous session</b> to read the log from before a reload or crash. API keys are hidden automatically.</td></tr>
+<tr><td>Network</td><td>Response time per service (AI providers, the MCP bridge, local models): p50, p95, max and errors, plus the latest calls. Only the address and timing are kept, never query strings, headers or content.</td></tr>
+<tr><td>Storage</td><td>Browser storage is the app's database. Test the connection, see the quota used, ask the browser to keep your data, and check autosave timings and failures.</td></tr>
+<tr><td>Benchmark</td><td>A 3-second render test on a hidden canvas that shows how much this device can draw. Your document isn't touched.</td></tr>
+</table>
+<p>If something turns red (memory, main thread or a slow or failing service), you get one short tip, repeated at most every 5 minutes. <b>Export report</b> saves everything as a .json file you can attach to a bug report. On very large documents, undo history is capped at about 150 MB (always at least 20 steps) so memory stays under control.</p>
+
+<h2 id="help">Troubleshooting</h2>
+<table>
+<tr><th>Problem</th><th>Try</th></tr>
+<tr><td>3D tab says it cannot start</td><td>Enable hardware acceleration in the browser settings; update the graphics driver.</td></tr>
+<tr><td>Video export is slow or missing</td><td>Use Chrome or Edge (hardware video encoding).</td></tr>
+<tr><td>"File is too large" / "megapixels" message</td><td>The file exceeds a safety limit — resize or compress it first.</td></tr>
+<tr><td>Work missing after clearing browser data</td><td>Autosave lives in the browser — keep a saved <code>.designstudio.json</code> as a backup.</td></tr>
+<tr><td>App feels slow or the dot is amber/red</td><td>Open Diagnostics (<kbd>Ctrl+Alt+D</kbd>): the red tile says what's wrong. For memory, save and reload the tab. For the main thread, close heavy effects or split large pages. Export the report if you need help.</td></tr>
+<tr><td>AI app can't see the file</td><td>Start the bridge in <code>mcp/</code>, then open <b>✦ AI › AI apps</b>; only one DesignStudio tab can be paired at a time.</td></tr>
+</table>
+<p>When reporting a problem, click the logo › <b>Copy diagnostics</b> and include it.</p>
+</main>
+</div>
+<footer>© 2026 Spideytech. All rights reserved. · Open-source components: THIRD-PARTY-NOTICES.txt</footer>
+</body>
+</html>

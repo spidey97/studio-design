@@ -1,0 +1,168 @@
+/**
+ * DesignStudio — brand, About and first-run (v3.21.0).
+ * App mark (logo) everywhere, launch splash, refreshed welcome screen, a proper About dialog with licences and
+ * diagnostics, What's new for the current release and a short guided tour that runs once after the user starts from
+ * the welcome screen (and any time from Help / About).
+ */
+'use strict';
+
+const BRAND = {
+  name: 'DesignStudio',
+  company: 'Spideytech',
+  tagline: 'Design, motion, media and 3D — one studio, fully offline.',
+  /** The DesignStudio logo is a wordmark (v3.28): lowercase "designstudio" outlined from Sora Bold (SIL OFL), "design" in the
+   *  blue → violet gradient, "studio" in pearl (#F4ECD6), and both i-dots replaced by holy-yellow link nodes (#FFC21A).
+   *  `wordmark(h)` is the logo; `mark(size)` is its short form — the wordmark's own "d" with a yellow node — for icons and tight spaces. */
+  wordmark(h = 20, label = true) {
+    const p = `dsw${(BRAND._n = (BRAND._n || 0) + 1)}`;
+    return `<svg class="ds-wordmark" height="${h}" width="${Math.round(h * 6.5264)}" viewBox="-2 22.55 660.80 101.25" ${label ? 'role="img" aria-label="DesignStudio"' : 'aria-hidden="true"'} focusable="false"><defs><linearGradient id="${p}g" x1="0" y1="0" x2="337.5" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4ZM99.69999999999999 101.9Q92.7 101.9 87.35 99.5Q82.0 97.1 78.44999999999999 93.05Q74.89999999999999 89.0 73.05 83.95Q71.2 78.9 71.2 73.6V71.6Q71.2 66.1 73.05 61.05Q74.89999999999999 56.0 78.4 52.0Q81.9 48.0 87.15 45.65Q92.4 43.3 99.1 43.3Q107.9 43.3 113.95 47.25Q120.0 51.199999999999996 123.2 57.55Q126.4 63.9 126.4 71.4V76.8H77.9V67.69999999999999H116.7L111.5 71.9Q111.5 67.0 110.1 63.5Q108.7 60.0 105.94999999999999 58.15Q103.19999999999999 56.3 99.1 56.3Q94.9 56.3 92.0 58.199999999999996Q89.1 60.099999999999994 87.6 63.75Q86.1 67.4 86.1 72.7Q86.1 77.6 87.5 81.25Q88.9 84.9 91.9 86.9Q94.9 88.9 99.69999999999999 88.9Q104.1 88.9 106.9 87.2Q109.7 85.5 110.7 83.0H125.4Q124.2 88.5 120.7 92.8Q117.2 97.1 111.9 99.5Q106.6 101.9 99.69999999999999 101.9ZM154.8 101.7Q143.1 101.7 136.5 96.9Q129.9 92.1 129.5 83.4H143.7Q144.1 86.0 146.85 88.05Q149.6 90.1 155.1 90.1Q159.3 90.1 162.05 88.65Q164.8 87.2 164.8 84.5Q164.8 82.1 162.7 80.65Q160.6 79.2 155.2 78.6L150.9 78.2Q141.0 77.2 136.05 72.7Q131.1 68.2 131.1 61.199999999999996Q131.1 55.4 134.0 51.5Q136.9 47.599999999999994 142.05 45.599999999999994Q147.2 43.599999999999994 153.8 43.599999999999994Q164.4 43.599999999999994 170.9 48.25Q177.4 52.9 177.7 61.699999999999996H163.5Q163.1 59.0 160.7 57.15Q158.3 55.3 153.6 55.3Q149.9 55.3 147.7 56.699999999999996Q145.5 58.099999999999994 145.5 60.5Q145.5 62.8 147.4 63.99999999999999Q149.3 65.19999999999999 153.6 65.69999999999999L157.9 66.1Q168.0 67.19999999999999 173.6 71.69999999999999Q179.2 76.2 179.2 83.8Q179.2 89.3 176.2 93.35Q173.2 97.4 167.7 99.55000000000001Q162.2 101.7 154.8 101.7ZM189.20000000000002 100.0V45.199999999999996H205.20000000000002V100.0ZM181.9 57.0V45.199999999999996H205.20000000000002V57.0ZM238.60000000000002 121.8Q234.60000000000002 121.8 230.40000000000003 121.5Q226.20000000000002 121.2 222.70000000000002 120.7V107.2Q226.20000000000002 107.7 230.45000000000002 108.05000000000001Q234.70000000000002 108.4 238.20000000000002 108.4Q244.70000000000002 108.4 248.75 106.9Q252.8 105.4 254.70000000000002 102.35Q256.6 99.3 256.6 94.5V83.6L259.5 77.2Q259.3 84.5 256.65000000000003 89.7Q254.00000000000003 94.9 249.3 97.65Q244.60000000000002 100.4 238.10000000000002 100.4Q232.50000000000003 100.4 227.95000000000002 98.35Q223.4 96.3 220.20000000000002 92.6Q217.00000000000003 88.9 215.3 83.95Q213.60000000000002 79.0 213.60000000000002 73.2V70.9Q213.60000000000002 65.1 215.40000000000003 60.099999999999994Q217.20000000000002 55.099999999999994 220.60000000000002 51.39999999999999Q224.00000000000003 47.699999999999996 228.70000000000005 45.64999999999999Q233.40000000000003 43.599999999999994 239.10000000000002 43.599999999999994Q245.70000000000002 43.599999999999994 250.55 46.5Q255.40000000000003 49.4 258.20000000000005 55.0Q261.0 60.599999999999994 261.20000000000005 68.5L259.0 69.1V45.199999999999996H271.70000000000005V93.5Q271.70000000000005 103.6 268.1 109.8Q264.5 116.0 257.15 118.9Q249.8 121.8 238.60000000000002 121.8ZM243.10000000000002 86.9Q246.8 86.9 249.8 85.25Q252.8 83.6 254.55 80.5Q256.3 77.4 256.3 73.0V70.1Q256.3 65.8 254.45000000000002 62.849999999999994Q252.60000000000002 59.9 249.60000000000002 58.349999999999994Q246.60000000000002 56.8 243.20000000000002 56.8Q239.20000000000002 56.8 236.10000000000002 58.699999999999996Q233.00000000000003 60.599999999999994 231.3 64.0Q229.60000000000002 67.4 229.60000000000002 72.0Q229.60000000000002 76.7 231.35000000000002 80.05000000000001Q233.10000000000002 83.4 236.15000000000003 85.15Q239.20000000000002 86.9 243.10000000000002 86.9ZM282.6 100.0V45.199999999999996H295.3V68.7H294.40000000000003Q294.40000000000003 60.3 296.55 54.699999999999996Q298.7 49.099999999999994 303.1 46.3Q307.5 43.5 313.8 43.5H314.5Q324.1 43.5 329.15000000000003 49.75Q334.20000000000005 56.0 334.20000000000005 68.7V100.0H318.20000000000005V67.8Q318.20000000000005 63.4 315.6 60.599999999999994Q313.0 57.8 308.6 57.8Q304.1 57.8 301.35 60.65Q298.6 63.5 298.6 68.1V100.0Z" fill="url(#${p}g)"/><path class="wm-studio" d="M367.6 101.7Q355.9 101.7 349.29999999999995 96.9Q342.7 92.1 342.3 83.4H356.5Q356.9 86.0 359.65 88.05Q362.4 90.1 367.9 90.1Q372.1 90.1 374.85 88.65Q377.6 87.2 377.6 84.5Q377.6 82.1 375.5 80.65Q373.4 79.2 368.0 78.6L363.7 78.2Q353.8 77.2 348.85 72.7Q343.9 68.2 343.9 61.199999999999996Q343.9 55.4 346.79999999999995 51.5Q349.7 47.599999999999994 354.85 45.599999999999994Q360.0 43.599999999999994 366.6 43.599999999999994Q377.2 43.599999999999994 383.7 48.25Q390.2 52.9 390.5 61.699999999999996H376.3Q375.9 59.0 373.5 57.15Q371.1 55.3 366.4 55.3Q362.7 55.3 360.5 56.699999999999996Q358.3 58.099999999999994 358.3 60.5Q358.3 62.8 360.20000000000005 63.99999999999999Q362.1 65.19999999999999 366.4 65.69999999999999L370.7 66.1Q380.8 67.19999999999999 386.4 71.69999999999999Q392.0 76.2 392.0 83.8Q392.0 89.3 389.0 93.35Q386.0 97.4 380.5 99.55000000000001Q375.0 101.7 367.6 101.7ZM424.3 100.7Q416.0 100.7 410.9 98.65Q405.8 96.6 403.45000000000005 91.75Q401.1 86.9 401.1 78.6V30.39999999999999H416.0V79.2Q416.0 83.1 418.05 85.15Q420.1 87.2 423.90000000000003 87.2H432.0V100.7ZM392.8 56.9V45.199999999999996H432.0V56.9ZM458.3 101.7Q448.8 101.7 443.70000000000005 95.55000000000001Q438.6 89.4 438.6 77.0V45.199999999999996H454.6V77.8Q454.6 82.2 457.1 84.80000000000001Q459.6 87.4 463.8 87.4Q468.1 87.4 470.8 84.7Q473.5 82.0 473.5 77.4V45.199999999999996H489.5V100.0H476.8V76.9H477.9Q477.9 85.2 475.75 90.75Q473.6 96.3 469.4 99.0Q465.2 101.7 459.0 101.7ZM523.9 101.8Q518.1 101.8 513.35 99.69999999999999Q508.6 97.6 505.1 93.85Q501.6 90.1 499.75 85.0Q497.9 79.9 497.9 74.0V71.7Q497.9 65.8 499.65 60.699999999999996Q501.4 55.599999999999994 504.75 51.75Q508.1 47.9 512.8 45.75Q517.5 43.599999999999994 523.3 43.599999999999994Q529.9 43.599999999999994 534.7 46.449999999999996Q539.5 49.3 542.2 54.849999999999994Q544.9 60.4 545.2 68.5L541.0 64.6V27.0H557.1V100.0H544.4V77.3H546.6Q546.3 85.1 543.3499999999999 90.6Q540.4 96.1 535.4 98.94999999999999Q530.4 101.8 523.9 101.8ZM527.9 88.4Q531.6 88.4 534.6500000000001 86.75Q537.7 85.1 539.55 81.9Q541.4 78.7 541.4 74.2V70.5Q541.4 66.1 539.5 63.099999999999994Q537.6 60.099999999999994 534.5 58.5Q531.4 56.9 527.8 56.9Q523.8 56.9 520.65 58.95Q517.5 61.0 515.7 64.55Q513.9 68.1 513.9 72.8Q513.9 77.6 515.7 81.1Q517.5 84.6 520.7 86.5Q523.9 88.4 527.9 88.4ZM571.1999999999999 100.0V45.199999999999996H587.1999999999999V100.0ZM563.9 57.0V45.199999999999996H587.1999999999999V57.0ZM625.6999999999999 101.9Q618.4999999999999 101.9 612.8999999999999 99.65Q607.3 97.4 603.4499999999999 93.5Q599.5999999999999 89.6 597.5999999999999 84.55Q595.5999999999999 79.5 595.5999999999999 73.9V71.6Q595.5999999999999 65.9 597.6499999999999 60.75Q599.6999999999999 55.599999999999994 603.6499999999999 51.699999999999996Q607.5999999999999 47.8 613.1999999999999 45.55Q618.8 43.3 625.6999999999999 43.3Q632.8 43.3 638.3499999999999 45.55Q643.9 47.8 647.8 51.699999999999996Q651.6999999999999 55.599999999999994 653.8 60.75Q655.9 65.9 655.9 71.6V73.9Q655.9 79.5 653.9 84.55Q651.9 89.6 648.05 93.5Q644.1999999999999 97.4 638.5999999999999 99.65Q632.9999999999999 101.9 625.6999999999999 101.9ZM625.6999999999999 88.4Q630.4 88.4 633.5 86.4Q636.5999999999999 84.4 638.25 80.80000000000001Q639.9 77.2 639.9 72.8Q639.9 68.1 638.1999999999999 64.55Q636.4999999999999 61.0 633.3499999999999 58.9Q630.1999999999999 56.8 625.6999999999999 56.8Q621.3 56.8 618.0999999999999 58.9Q614.9 61.0 613.25 64.55Q611.5999999999999 68.1 611.5999999999999 72.8Q611.5999999999999 77.2 613.1999999999999 80.80000000000001Q614.8 84.4 618.0 86.4Q621.1999999999999 88.4 625.6999999999999 88.4Z" fill="#F4ECD6"/><circle cx="193.55" cy="33.55" r="9" fill="#FFC21A"/><circle cx="575.55" cy="33.55" r="9" fill="#FFC21A"/></svg>`;
+  },
+  mark(size = 24) {
+    const p = `dsm${(BRAND._n = (BRAND._n || 0) + 1)}`;
+    return `<svg class="ds-mark" width="${size}" height="${size}" viewBox="-9.9 8.6 97.2 97.2" aria-hidden="true" focusable="false">${size <= 20 ? `<defs><linearGradient id="${p}s" x1="3.9" y1="27.0" x2="63.1" y2="100.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient><mask id="${p}m" maskUnits="userSpaceOnUse" x="-50" y="-50" width="300" height="300"><rect x="-50" y="-50" width="300" height="300" fill="#fff"/><circle cx="61.8" cy="25.2" r="15.8" fill="#000"/></mask></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4Z" fill="url(#${p}s)" mask="url(#${p}m)"/><circle cx="61.8" cy="25.2" r="11.2" fill="#FFC21A"/>` : `<defs><linearGradient id="${p}s" x1="3.9" y1="27.0" x2="63.1" y2="100.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A8BFF"/><stop offset="1" stop-color="#6B4FF0"/></linearGradient><mask id="${p}m" maskUnits="userSpaceOnUse" x="-50" y="-50" width="300" height="300"><rect x="-50" y="-50" width="300" height="300" fill="#fff"/><circle cx="61.8" cy="25.2" r="14.4" fill="#000"/></mask></defs><path d="M29.900000000000002 101.8Q24.1 101.8 19.35 99.69999999999999Q14.600000000000001 97.6 11.100000000000001 93.85Q7.6000000000000005 90.1 5.75 85.0Q3.9000000000000004 79.9 3.9000000000000004 74.0V71.7Q3.9000000000000004 65.8 5.65 60.699999999999996Q7.4 55.599999999999994 10.75 51.75Q14.100000000000001 47.9 18.8 45.75Q23.5 43.599999999999994 29.3 43.599999999999994Q35.9 43.599999999999994 40.7 46.449999999999996Q45.5 49.3 48.2 54.849999999999994Q50.900000000000006 60.4 51.2 68.5L47.0 64.6V27.0H63.1V100.0H50.400000000000006V77.3H52.6Q52.300000000000004 85.1 49.35000000000001 90.6Q46.400000000000006 96.1 41.400000000000006 98.94999999999999Q36.4 101.8 29.900000000000002 101.8ZM33.9 88.4Q37.6 88.4 40.650000000000006 86.75Q43.7 85.1 45.550000000000004 81.9Q47.400000000000006 78.7 47.400000000000006 74.2V70.5Q47.400000000000006 66.1 45.5 63.099999999999994Q43.6 60.099999999999994 40.5 58.5Q37.4 56.9 33.800000000000004 56.9Q29.8 56.9 26.65 58.95Q23.5 61.0 21.700000000000003 64.55Q19.900000000000002 68.1 19.900000000000002 72.8Q19.900000000000002 77.6 21.700000000000003 81.1Q23.5 84.6 26.700000000000003 86.5Q29.900000000000002 88.4 33.9 88.4Z" fill="url(#${p}s)" mask="url(#${p}m)"/><circle cx="61.8" cy="25.2" r="9.9" fill="#FFC21A"/>`}</svg>`;
+  },
+  lockup(h = 20) { return BRAND.wordmark(h); },
+  highlights: [
+    ['Linked studio', 'Use 3D scenes and Media frames in Design (and Design layers in 3D) — links stay in sync, and 3D layers can be orbited right on the Design canvas.'],
+    ['3D timeline', 'Dope sheet with copy / paste keys, custom easing curves, loops, play ranges, shape keys and morph targets.'],
+    ['Rulers & guides everywhere', 'Pixel rulers and guides in Media, world-unit rulers and snapping guide planes in 3D.'],
+    ['One top bar', 'Edit / Animate, zoom, grid, snap, timeline, play, comments and links work in Design, Media and 3D.'],
+    ['Touch, pen & any browser', 'Pinch-zoom, long-press menus, pen with palm rejection; Safari and Firefox rendering fallbacks.'],
+    ['Hardened', 'Malicious project, image, SVG and 3D files are neutralised; strict Content-Security-Policy; paired AI bridge.']
+  ],
+  thirdParty: [['three.js', 'MIT'], ['gifenc / gifuct-js', 'MIT'], ['mp4-muxer / webm-muxer', 'MIT'], ['fflate', 'MIT'], ['Inter (system fallback)', 'OFL']]
+};
+
+(function patchBrand() {
+  const P = StudioApp.prototype, bM = P.bindMedia, b3 = P.bind3D;
+  P.bindMedia = function () { bM.call(this); Icons.decorate(document.getElementById('media-workspace')); };
+  P.bind3D = function () { b3.call(this); Icons.decorate(document.getElementById('space3d-workspace')); };
+})();
+
+const BrandMixin = {
+  bindBrand() {
+    // logo in the top bar + welcome, current version on the welcome screen
+    const badge = document.getElementById('app-logo-badge');
+    if (badge) { const svg = badge.querySelector('svg'); if (svg) svg.outerHTML = BRAND.mark(22); const bs = badge.querySelector('span'); if (bs) { bs.className = 'ds-word'; bs.innerHTML = BRAND.wordmark(17, false); } badge.title = `${BRAND.name} ${APP_VERSION} — About`; badge.style.cursor = 'pointer'; badge.addEventListener('click', () => this.showAbout()); }
+    const wl = document.querySelector('.welcome-logo svg'); if (wl) wl.outerHTML = BRAND.mark(34);
+    const wn = document.getElementById('btn-whats-new'); if (wn) wn.textContent = `What’s new in ${APP_VERSION}`;
+    Icons.decorate(document);
+    // first-run tour after the user starts from the welcome screen
+    const ws = document.getElementById('welcome-screen');
+    ws?.querySelectorAll('[data-start]').forEach(b => b.addEventListener('click', () => setTimeout(() => this.maybeTour(), 450)));
+    // minimap: collapsible, and out of the way while the timeline is open (it covered the canvas on laptops)
+    const mm = document.getElementById('minimap-container'), tl = document.getElementById('timeline-panel');
+    if (mm) {
+      let col = false; try { col = localStorage.getItem('designstudio.minimap') === 'off'; } catch (_) { /* ignore */ }
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'mm-toggle'; btn.setAttribute('aria-label', 'Hide minimap'); btn.title = 'Hide / show minimap';
+      btn.innerHTML = Icons.svg('error', 12); mm.appendChild(btn);
+      const show = document.createElement('button'); show.type = 'button'; show.className = 'mm-show'; show.title = 'Show minimap'; show.setAttribute('aria-label', 'Show minimap'); show.innerHTML = Icons.svg('grid', 14); mm.parentNode.appendChild(show);
+      const sync = () => { const tlOpen = tl && tl.style.display !== 'none' && tl.offsetHeight > 0; mm.classList.toggle('mm-off', col || tlOpen); show.hidden = !col || tlOpen; };
+      btn.addEventListener('pointerdown', (e) => e.stopPropagation());
+      btn.addEventListener('click', (e) => { e.stopPropagation(); col = true; try { localStorage.setItem('designstudio.minimap', 'off'); } catch (_) { /* ignore */ } sync(); });
+      show.addEventListener('click', () => { col = false; try { localStorage.setItem('designstudio.minimap', 'on'); } catch (_) { /* ignore */ } sync(); });
+      if (tl) new MutationObserver(sync).observe(tl, { attributes: true, attributeFilter: ['style', 'class'] });
+      sync();
+    }
+    // ? opens the shortcut list (not while typing)
+    window.addEventListener('keydown', (e) => { if (e.key !== '?' || e.ctrlKey || e.metaKey || e.altKey) return; const a = document.activeElement; if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return; if (document.querySelector('.ds-dialog-overlay')) return; e.preventDefault(); this.showShortcuts(); });
+    // splash out
+    const sp = document.getElementById('ds-splash');
+    if (sp) { sp.classList.add('out'); setTimeout(() => sp.remove(), 450); }
+  },
+
+  // ------------------------------------------------------------------ About / What's new
+  showAbout() {
+    document.querySelector('.ds-about')?.closest('.ds-dialog-overlay')?.remove();
+    const m = this.model;
+    const diag = [`${BRAND.name} ${APP_VERSION} (${APP_BUILD_DATE}, ${APP_CODENAME})`, `Browser: ${navigator.userAgent}`, `Screen: ${screen.width}×${screen.height} @${window.devicePixelRatio}x`, `Canvas filter: ${window.DS_COMPAT?.canvasFilter || 'native'}`, `Project: ${this.title} — ${m.pages.length} page(s) · ${m.allElements().length} layers · ${m.animations.length} animation(s)`, `Section: ${this.section} · Mode: ${this.uiMode === 'design' ? 'edit' : this.uiMode}`].join('\n');
+    const ov = document.createElement('div');
+    ov.className = 'ds-dialog-overlay';
+    ov.innerHTML = `<div class="ds-dialog ds-about" role="dialog" aria-modal="true" aria-labelledby="about-h">
+      <div class="about-hero"><div><h3 id="about-h" class="about-wm">${BRAND.wordmark(26)}</h3><p class="about-tag"></p><span class="ver-pill"></span> <span class="about-build"></span></div></div>
+      <ul class="about-facts"><li>${Icons.svg('key', 14)}<span>Runs entirely in your browser — files never leave this computer.</span></li><li>${Icons.svg('save', 14)}<span>Autosaves locally; projects are portable <b>.designstudio.json</b> files.</span></li><li>${Icons.svg('check', 14)}<span>Every release is tested by the automated QA suite in <b>tests/</b>.</span></li></ul>
+      <details class="about-more"><summary>Third-party software</summary><ul class="about-3p">${BRAND.thirdParty.map(([n, l]) => `<li><span>${Utils.escapeHtml(n)}</span><b>${l}</b></li>`).join('')}</ul></details>
+      <details class="about-more"><summary>Diagnostics (for support)</summary><pre class="about-diag"></pre></details>
+      <p class="about-copy"></p>
+      <div class="ds-dialog-actions"><button class="menu-btn" data-a="keys">Shortcuts</button><button class="menu-btn" data-a="tour">Take the tour</button><button class="menu-btn" data-a="new">What’s new</button><button class="menu-btn" data-a="copy">Copy diagnostics</button><button class="btn-primary" data-a="close">Close</button></div></div>`;
+    ov.querySelector('.about-tag').textContent = BRAND.tagline;
+    ov.querySelector('.ver-pill').textContent = `v${APP_VERSION}`;
+    ov.querySelector('.about-build').textContent = `Build ${APP_BUILD_DATE} · ${APP_CODENAME}`;
+    ov.querySelector('.about-diag').textContent = diag;
+    ov.querySelector('.about-copy').textContent = `© ${String(APP_BUILD_DATE).slice(0, 4)} ${BRAND.company}. Free for noncommercial use (PolyForm Noncommercial 1.0.0).`;
+    document.body.appendChild(ov);
+    const close = () => ov.remove();
+    ov.addEventListener('pointerdown', (e) => { if (e.target === ov) close(); });
+    ov.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } });
+    ov.querySelector('[data-a="close"]').addEventListener('click', close);
+    ov.querySelector('[data-a="tour"]').addEventListener('click', () => { close(); this.startTour(); });
+    ov.querySelector('[data-a="keys"]').addEventListener('click', () => { close(); this.showShortcuts(); });
+    ov.querySelector('[data-a="new"]').addEventListener('click', () => { close(); this.showWhatsNew(); });
+    ov.querySelector('[data-a="copy"]').addEventListener('click', async () => { try { await navigator.clipboard.writeText(diag); Utils.toast('Diagnostics copied', '✅'); } catch (_) { Utils.toast('Copy failed — select the text and copy it', '⚠️'); } });
+    setTimeout(() => ov.querySelector('[data-a="close"]').focus(), 20);
+  },
+  showWhatsNew() {
+    this.dialog({
+      title: `What’s new in ${BRAND.name} ${APP_VERSION}`,
+      body: `<ul class="whats-new">${BRAND.highlights.map(([h, t]) => `<li><b>${Utils.escapeHtml(h)}</b><span>${Utils.escapeHtml(t)}</span></li>`).join('')}</ul><p class="muted-text">Every change, with its ID, is listed in CHANGELOG.md.</p>`,
+      actions: [{ label: 'Take the tour', run: () => this.startTour() }, { label: 'Got it', primary: true }]
+    });
+  },
+
+  // ------------------------------------------------------------------ keyboard shortcuts (? key, Help)
+  showShortcuts() {
+    const S = [['General', [['Ctrl+Z / Ctrl+Shift+Z', 'Undo / redo'], ['Ctrl+S', 'Save project'], ['Ctrl+E', 'Export'], ['Ctrl+Alt+1 / 2 / 3', 'Design / Media / 3D'], ['C', 'Comments'], ['Ctrl+Alt+D', 'Diagnostics (health, logs)'], ['Ctrl+,', 'Settings'], ['?', 'This list']]],
+      ['Design', [['V', 'Select / move'], ['F', 'Frame'], ['R / O / T', 'Rectangle / ellipse / text'], ['P', 'Pen'], ['Space + drag', 'Pan'], ['Ctrl + wheel', 'Zoom'], ['Shift+1', 'Zoom to fit'], ['Ctrl+D / Ctrl+G', 'Duplicate / group'], ['Shift+A', 'Auto layout'], ['Ctrl+Alt+K', 'Create component'], ['Ctrl+;', 'Show / hide guides']]],
+      ['3D', [['W / E / R', 'Move / rotate / scale'], ['F', 'Focus selection'], ['K', 'Key selection'], ['Space', 'Play / pause'], ['J / L', 'Previous / next key'], [', / .', 'Step a frame'], ['I / O', 'Play range in / out'], ['Ctrl+C / V / D', 'Copy / paste / duplicate keys']]],
+      ['Media', [['Space', 'Play / pause'], ['← / →', 'Previous / next frame'], ['Delete', 'Delete frame']]]];
+    this.dialog({ title: 'Keyboard shortcuts', wide: true, body: `<div class="kb-grid">${S.map(([h, rows]) => `<section><h4>${h}</h4>${rows.map(([k, d]) => `<div class="kb-row"><span>${Utils.escapeHtml(d)}</span><kbd>${Utils.escapeHtml(k)}</kbd></div>`).join('')}</section>`).join('')}</div>`, actions: [{ label: 'Close', primary: true }] });
+  },
+
+  // ------------------------------------------------------------------ guided tour
+  maybeTour() {
+    let seen = false; try { seen = localStorage.getItem('designstudio.tour.v1') === '1'; } catch (_) { seen = true; }
+    if (!seen && document.getElementById('welcome-screen')?.style.display === 'none') this.startTour();
+  },
+  startTour() {
+    this.endTour();
+    try { localStorage.setItem('designstudio.tour.v1', '1'); } catch (_) { /* ignore */ }
+    const steps = [
+      ['#section-switch', 'Three studios, one file', 'Design screens, edit GIFs and video in Media, and build interactive scenes in 3D. Content can be linked between them.'],
+      ['#mode-switch', 'Edit or Animate', 'Edit lays things out. Animate opens the timeline — in 3D it also turns on auto-key so moving objects records keyframes.'],
+      ['#tool-palette', 'Tools', 'Frame (F), Rectangle (R), Ellipse (O), Text (T), Pen (P) and more. Hold Space to pan, Ctrl + wheel to zoom — or pinch on a touch screen.'],
+      ['#right-panel', 'Properties', 'Everything about the selection: layout, fills, effects, prototype links and developer specs. Linked 3D layers can be orbited here.'],
+      ['#btn-links', 'Links & comments', 'Send 3D scenes and Media frames into Design (and back) — they stay in sync. Comments (C) work in every tab.'],
+      ['#btn-play-proto', 'Play & export', 'Play runs the prototype (or the 3D / Media animation). Export gives you PNG, SVG, code, Lottie, video, interactive HTML and more.']
+    ];
+    let i = 0;
+    const tip = document.createElement('div'); tip.className = 'ds-tour'; tip.setAttribute('role', 'dialog'); tip.setAttribute('aria-live', 'polite');
+    const ring = document.createElement('div'); ring.className = 'ds-tour-ring';
+    document.body.append(ring, tip);
+    const show = () => {
+      const [sel, h, t] = steps[i], target = sel.split(',').map(s => document.querySelector(s.trim())).find(x => x && x.getBoundingClientRect().width);
+      tip.innerHTML = `<div class="ds-tour-h"><b></b><span>${i + 1} / ${steps.length}</span></div><p></p><div class="ds-tour-a"><button type="button" class="menu-btn" data-t="skip">Skip</button>${i ? '<button type="button" class="menu-btn" data-t="back">Back</button>' : ''}<button type="button" class="btn-primary" data-t="next">${i === steps.length - 1 ? 'Done' : 'Next'}</button></div>`;
+      tip.querySelector('b').textContent = h; tip.querySelector('p').textContent = t;
+      const r = target ? target.getBoundingClientRect() : { left: innerWidth / 2 - 1, top: innerHeight / 2 - 1, width: 2, height: 2, right: innerWidth / 2, bottom: innerHeight / 2 };
+      Object.assign(ring.style, { left: `${r.left - 4}px`, top: `${r.top - 4}px`, width: `${r.width + 8}px`, height: `${r.height + 8}px` });
+      const tw = 300, th = tip.offsetHeight || 150;
+      let x = r.left + r.width / 2 - tw / 2, y = r.bottom + 12;
+      if (y + th > innerHeight - 8) y = r.top - th - 12;
+      if (r.width > innerWidth * 0.5 || r.height > innerHeight * 0.6) { x = r.left + 24; y = r.top + 24; }
+      if (r.left > innerWidth - 360) x = r.left - tw - 16, y = Math.max(8, r.top);
+      Object.assign(tip.style, { left: `${Utils.clamp(x, 8, innerWidth - tw - 8)}px`, top: `${Utils.clamp(y, 8, innerHeight - th - 8)}px` });
+      tip.querySelector('[data-t="next"]').addEventListener('click', () => { if (++i >= steps.length) this.endTour(); else show(); });
+      tip.querySelector('[data-t="back"]')?.addEventListener('click', () => { i = Math.max(0, i - 1); show(); });
+      tip.querySelector('[data-t="skip"]').addEventListener('click', () => this.endTour());
+      tip.querySelector('[data-t="next"]').focus();
+    };
+    const key = (e) => { if (e.key === 'Escape') { e.stopPropagation(); this.endTour(); } };
+    window.addEventListener('keydown', key, true);
+    this._tour = { tip, ring, key };
+    show();
+  },
+  endTour() {
+    const t = this._tour; if (!t) return;
+    t.tip.remove(); t.ring.remove(); window.removeEventListener('keydown', t.key, true); this._tour = null;
+  }
+};
+Object.assign(StudioApp.prototype, BrandMixin);

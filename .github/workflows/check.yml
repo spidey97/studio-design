@@ -1,0 +1,18 @@
+name: Safety check
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Secrets, private files and file sizes
+        run: node tools/check-publish.mjs
+      - name: Scripts parse
+        run: for f in $(git ls-files 'js/**/*.js' 'tools/*.mjs' 'mcp/*.mjs' 'tests/*.js'); do node --check "$f" || exit 1; done

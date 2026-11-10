@@ -1,0 +1,27 @@
+{
+  "as_of": "November 2026",
+  "note": "Prices are list prices per seat or editor per month, from third-party pricing trackers (Nov 2026). Feature ratings: ● full, ◐ partial or basic, – not offered. Positioning is our assessment.",
+  "features": ["UI design", "Prototyping", "Motion timeline", "State machines", "GIF / video editing", "3D", "Where it runs", "Starting price"],
+  "rows": [
+    {"name": "DesignStudio", "focus": "Design, motion, media and 3D in one studio", "v": ["●", "●", "●", "●", "●", "●", "Browser, fully offline", "Free"], "x": 0.92, "y": 0.9, "us": true},
+    {"name": "Figma", "focus": "Collaborative UI design and prototyping", "v": ["●", "●", "◐", "◐", "–", "–", "Cloud (browser and desktop)", "Free · Pro $15–20"], "x": 0.42, "y": 0.12},
+    {"name": "Penpot", "focus": "Open-source design and prototyping", "v": ["●", "●", "–", "–", "–", "–", "Cloud or self-hosted", "Free · Ent. $25"], "x": 0.3, "y": 0.66},
+    {"name": "Rive", "focus": "Interactive animation for apps and games", "v": ["◐", "◐", "●", "●", "–", "–", "Desktop and web", "Free (3 files) · $25"], "x": 0.45, "y": 0.45},
+    {"name": "Spline", "focus": "3D design for the web", "v": ["◐", "◐", "◐", "◐", "–", "●", "Cloud (browser)", "Free · $12–70"], "x": 0.33, "y": 0.2},
+    {"name": "Jitter", "focus": "Motion design for UI and social", "v": ["◐", "–", "●", "–", "◐", "–", "Cloud (browser)", "Free · Pro $18"], "x": 0.25, "y": 0.1}
+  ],
+  "axes": {"x": ["One discipline", "Every discipline"], "y": ["Cloud-first", "Local and private"]},
+  "insights": [
+    "Every competitor owns one discipline. Work crosses tools through exports, plugins and re-imports.",
+    "Most run in the cloud. Few let a maker work fully offline without uploading files.",
+    "Visually the category is crowded with multicolour marks and abstract shapes. Few brands carry a story about connection.",
+    "Opportunity: own 'connected': one studio where design, motion, media and 3D stay linked, local by default."
+  ],
+  "sources": [
+    ["Figma pricing (Toolradar)", "https://toolradar.com/tools/figma/pricing"],
+    ["Penpot self-host pricing", "https://penpot.app/pricing/self-host"],
+    ["Rive review & pricing (Makerstack)", "https://makerstack.co/reviews/rive-review/"],
+    ["Spline pricing (Costbench)", "https://costbench.com/software/ai-3d-generation/spline/"],
+    ["Jitter review & pricing (Makerstack)", "https://makerstack.co/reviews/jitter-review/"]
+  ]
+}

@@ -1,0 +1,49 @@
+# ---- DesignStudio: keep the public repo to app source only ----
+
+# Dependencies
+node_modules/
+
+# Build output: attach release/DesignStudio-<version>.html to a GitHub Release instead
+release/
+*.zip
+*.tgz
+_ds_*.tgz
+
+# Local archives and private material (never published)
+_versions/
+_backup/
+Final/
+projects/
+assets/
+docs/designs/
+
+# Secrets and local config: never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets*
+credentials*
+*.local.json
+
+# Python / tool caches
+__pycache__/
+*.pyc
+
+# Test run output
+tests/report.json
+tests/load-results.json
+tests/test-results/
+tests/screenshots/
+playwright-report/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
