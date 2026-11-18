@@ -1679,6 +1679,7 @@ body.commenting[data-section="3d"] #s3-canvas { cursor: crosshair; }
   .project-title-input { max-width: 120px; }
   .mode-switch button span { display: none; }
   .top-bar-left, .top-bar-right { gap: 6px; } .top-bar-center { gap: 6px; }
+  .ho-commit-t { display: none; } .ho-commit { padding-left: 8px; }
 }
 @media (max-width: 860px) {
   #top-bar { overflow-x: auto; overflow-y: hidden; justify-content: flex-start; gap: 10px; scrollbar-width: thin; }
@@ -1952,12 +1953,14 @@ body:not(.ws-ai-docked) .ws-ai-grip { display: none; }
 .gh-confirm { margin: 0 0 12px 18px; max-height: 220px; overflow: auto; }
 
 /* ===== v3.35.0 Developer Handover ===== */
-.ho-commit { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 40; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px 10px 14px; border: 0; border-radius: 999px; background: var(--accent-strong); color: #fff; font: 600 13px/1 inherit; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08) inset; animation: ho-in .18s ease-out; }
-.ho-commit:hover { background: var(--accent-strong-hover); }
-.ho-commit:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.ho-commit-i { font-size: 15px; }
-.ho-commit-n { background: rgba(255,255,255,.2); border-radius: 999px; padding: 3px 8px; font-size: 11px; }
-@keyframes ho-in { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.ho-commit { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 6px 0 10px; border: 1px solid var(--accent); border-radius: 4px; background: transparent; color: var(--accent); font: 600 11px/1 inherit; white-space: nowrap; flex: none; cursor: pointer; animation: ho-in .16s ease-out; }
+.ho-commit[hidden] { display: none; }
+.ho-commit:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
+.ho-commit:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.ho-commit-i { font-size: 13px; }
+.ho-commit-n { background: color-mix(in srgb, var(--accent) 22%, transparent); border-radius: 999px; padding: 2px 6px; font-size: 10px; }
+.ho-commit:hover .ho-commit-n { background: rgba(255,255,255,.22); }
+@keyframes ho-in { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .ho-commit { animation: none; } }
 .ho-cform .ho-msg { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--text-sub); }
 .ho-cform textarea { width: 100%; box-sizing: border-box; resize: vertical; }
@@ -2061,3 +2064,40 @@ body[data-section="handover"] :is(#btn-zoom-out, #btn-zoom-level, #btn-zoom-in, 
   #app-logo-badge .ds-word { display: none; }
 }
 @media (max-width: 1099px) { .section-switch button { padding: 4px 6px; } .project-title-input { max-width: 100px; } }
+
+/* File › Import… (v3.37.0) */
+.imp-drop { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; padding: 26px 16px; border: 1.5px dashed var(--border-light); border-radius: 10px; background: var(--bg-input); cursor: pointer; transition: border-color .15s, background .15s; }
+.imp-drop:hover, .imp-drop:focus-visible, .imp-drop.over { border-color: var(--accent); background: var(--bg-hover); outline: none; }
+.imp-drop b { color: var(--text-main); font-size: 14px; }
+.imp-drop-ic { font-size: 26px; line-height: 1; color: var(--accent); }
+.imp-sub { margin: 18px 0 8px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-sub); }
+.imp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 8px; }
+.imp-card { display: grid; grid-template-columns: 26px 1fr; column-gap: 8px; row-gap: 2px; align-items: center; text-align: left; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-card, var(--bg-input)); color: var(--text-main); cursor: pointer; font: inherit; }
+.imp-card:hover, .imp-card:focus-visible { border-color: var(--accent); background: var(--bg-hover); outline: none; }
+.imp-ic { grid-row: span 3; font-size: 20px; }
+.imp-card b { font-size: 13px; }
+.imp-fmt, .imp-to { font-size: 11px; color: var(--text-sub); }
+.imp-to { color: var(--accent); }
+.imp-gh { display: flex; justify-content: center; margin-top: 8px; }
+.imp-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 620px) { .imp-grid { grid-template-columns: 1fr 1fr; } }
+
+/* v3.37.0 overlap fixes (DS-3.37.0-02) */
+/* Menus with toggles reserve a check column so ✓ never sits on the label */
+.top-dropdown:has([data-action="toggleGrid"]) .dropdown-item { padding-left: 26px; }
+.dropdown-item.checked::before { left: 10px; }
+/* Text resize: labelled buttons, not 26px icon squares */
+#text-resize-group { flex: 1; gap: 4px; min-width: 0; }
+#text-resize-group .prop-icon-btn { width: auto; flex: 1 1 0; min-width: 0; padding: 0 6px; gap: 4px; white-space: nowrap; font-size: 11px; overflow: hidden; }
+.dropdown-item { gap: 20px; }
+.dropdown-shortcut { flex: none; }
+/* v3.37.0: the top bar fits from 1024 px with the Commit button showing (Grid/Snap stay in View and on Ctrl+' ) */
+@media (max-width: 1279px) { #btn-play-proto span, #btn-ai .ai-t { display: none; } .top-bar-right { gap: 4px; } }
+@media (max-width: 1199px) { #btn-toggle-grid, #btn-toggle-snap { display: none; } }
+@media (max-width: 1199px) { #btn-toggle-timeline { display: none; } }
+@media (max-width: 1099px) { .project-title-input { max-width: 84px; } }
+@media (max-width: 1023px) { #top-bar { overflow-x: auto; overflow-y: hidden; justify-content: flex-start; gap: 10px; scrollbar-width: thin; } #top-bar > * { flex-shrink: 0; } }
+.ds-dialog.wide:has(.imp-drop) { width: min(780px, calc(100vw - 32px)); }
+.imp-grid { grid-template-columns: repeat(4, 1fr); }
+.imp-card.imp-wide { grid-column: span 2; }
+@media (max-width: 820px) { .imp-grid { grid-template-columns: 1fr 1fr; } }

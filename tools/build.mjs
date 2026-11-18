@@ -31,7 +31,7 @@ const html = read('index.html');
 const scripts = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const app = scripts.filter(s => !s.startsWith('js/vendor/'));
 const vendor = scripts.filter(s => s.startsWith('js/vendor/'));
-let bundle = `/*! DesignStudio ${version} — © ${new Date().getFullYear()} Spideytech. PolyForm Noncommercial 1.0.0. Licences: File › Licences & Notices */\n`;
+let bundle = `/*! DesignStudio ${version} — © ${new Date().getFullYear()} DesignStudio. PolyForm Noncommercial 1.0.0. Licences: File › Licences & Notices */\n`;
 for (const s of app) bundle += `\n/* ${s} */\n${read(s)}\n`;
 if (terser) {
   const r = await terser.minify(bundle, { ecma: 2022, compress: false, mangle: { keep_fnames: true, keep_classnames: true }, keep_fnames: true, keep_classnames: true, format: { comments: /^!/ } });

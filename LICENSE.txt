@@ -1,5 +1,5 @@
 DesignStudio
-Required Notice: Copyright (c) 2026 Spideytech (Ponsurya Subramanian)
+Required Notice: Copyright (c) 2026 DesignStudio (https://github.com/spidey97/studio-design)
 
 DesignStudio is free to use under the PolyForm Noncommercial License 1.0.0 below:
 personal, hobby, study, education and non-profit use. Commercial use, including selling

@@ -1,6 +1,6 @@
 # DesignStudio — source
 
-Design, motion, media and 3D in one offline browser app. Free for noncommercial use: [PolyForm Noncommercial 1.0.0](LICENSE.txt). © 2026 Spideytech.
+Design, motion, media and 3D in one offline browser app. Free for noncommercial use: [PolyForm Noncommercial 1.0.0](LICENSE.txt). © 2026 DesignStudio.
 
 ## Download and use
 1. Open the [latest release](../../releases/latest) and download **`DesignStudio.html`**: the whole app in one file, about 2.4 MB.
@@ -69,7 +69,7 @@ Strict CSP in `index.html`; every file and project load goes through `js/core/se
 
 ## GitHub (v3.34)
 
-`js/ai/github.js` adds File › Import from GitHub… and the AI op `{"op":"github","action":"list|read|import","repo","ref","path","kind","paths"}`. `list` and `read` results are sent back to the model inside the same chat loop as MCP tools.
+`js/shell/importer.js` adds File › Import… (Ctrl+I), which sends each file to the studio that can use it. `js/design/code-import.js` turns code into layers: HTML/CSS, JSX/TSX, Vue, Svelte and Tailwind offline (rendered in a script-free shadow root, then walked into frames, text, shapes and images); SwiftUI, Flutter and Compose through the AI. `js/ai/github.js` adds File › Import from GitHub… and the AI op `{"op":"github","action":"list|read|import","repo","ref","path","kind","paths"}`. `list` and `read` results are sent back to the model inside the same chat loop as MCP tools.
 
 - **Requests:** reads only. The tree comes from the REST API (`git/trees?recursive=1`). File contents come from `raw.githubusercontent.com` for public repos, or from the API `contents` endpoint with a raw Accept header when a token is set.
 - **Tokens:** an optional fine-grained token, kept in `sessionStorage` unless the user ticks Remember. `github_pat_…` tokens are now redacted in diagnostics.

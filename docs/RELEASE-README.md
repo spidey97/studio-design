@@ -43,4 +43,4 @@ video export is fastest in Chrome / Edge.
 
 Everything (the app, the 3D engine, the media libraries, the AI bridge, the user guide and the licences) is inside the one HTML file. Your projects are never stored in it, so updating is a file swap.
 
-© 2026 Spideytech. Free for noncommercial use under the PolyForm Noncommercial License 1.0.0 (see File › Licences & Notices).
+© 2026 DesignStudio. Free for noncommercial use under the PolyForm Noncommercial License 1.0.0 (see File › Licences & Notices).

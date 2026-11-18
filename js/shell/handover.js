@@ -1,7 +1,7 @@
 /**
  * DesignStudio — Developer Handover (v3.35.0). The 4th section, next to 3D.
  *
- *  Commit     In Design, select the finished screens (Ctrl+A for everything). A "Commit to Handover" button appears;
+ *  Commit     In Design, select the finished screens (Ctrl+A for everything). A "Commit" button appears in the top bar, next to Play;
  *             it freezes a copy of the selection (layers, styles, variables, images + a preview per screen) as a
  *             numbered handover version and opens it in the Handover tab. Later edits in Design don't change it.
  *  Inspect    Click any layer on a screen: specs, spacing to its screen and parent, colours, type, CSS / React /
@@ -30,13 +30,13 @@ const HO_STATUS = { ready: 'Ready for development', progress: 'In development', 
 
 const HandoverMixin = {
   bindHandover() {
-    const vp = document.getElementById('center-viewport');
-    if (vp && !document.getElementById('ho-commit')) {
+    const play = document.getElementById('btn-play-proto');
+    if (play && !document.getElementById('ho-commit')) {
       const b = document.createElement('button'); b.id = 'ho-commit'; b.type = 'button'; b.className = 'ho-commit'; b.hidden = true;
       b.title = 'Freeze the selected design as a new version for developers (Ctrl+Alt+Enter)';
-      b.innerHTML = '<span class="ho-commit-i" aria-hidden="true">⇪</span><span class="ho-commit-t">Commit to Handover</span><span class="ho-commit-n"></span>';
+      b.innerHTML = '<span class="ho-commit-i" aria-hidden="true">⇪</span><span class="ho-commit-t">Commit</span><span class="ho-commit-n"></span>';
       b.addEventListener('click', () => this.hoCommitDialog());
-      vp.appendChild(b);
+      play.before(b); // top bar, left of Play, so Play and Export never move when it appears
     }
     if (this.commands) { this.commands.handoverCommit = { run: () => this.hoCommitDialog() }; this.commands.handover = { run: () => this.setSection('handover') }; }
     window.addEventListener('keydown', (e) => {
@@ -146,7 +146,7 @@ const HandoverMixin = {
       <select class="ho-filter" aria-label="Filter by status"><option value="">All statuses</option>${Object.entries(HO_STATUS).map(([k, v]) => `<option value="${k}"${this.ho.filter === k ? ' selected' : ''}>${v}</option>`).join('')}</select>
       <ul class="ho-list">${list.map(x => `<li><button type="button" class="ho-item${x.id === this.ho.open ? ' on' : ''}" data-ho="${x.id}" aria-current="${x.id === this.ho.open}"><span class="ho-v">v${x.n}</span><span class="ho-it"><b>${E(x.title)}</b><small>${when(x.createdAt)} · ${x.screens.length} screen${x.screens.length === 1 ? '' : 's'}</small></span><span class="ho-st ho-st-${x.status}" title="${HO_STATUS[x.status]}"></span></button></li>`).join('') || `<li class="ho-none">${L.length ? 'No versions with this status.' : 'No handovers yet.'}</li>`}</ul></aside>`;
     if (!h) {
-      ws.innerHTML = `${side}<section class="ho-empty"><div><div class="ho-empty-i" aria-hidden="true">⇪</div><h2>Nothing handed over yet</h2><p>In <b>Design</b>, select the screens you've finished (<kbd>Ctrl</kbd>+<kbd>A</kbd> selects everything) and press <b>Commit to Handover</b>. Developers get specs, code, assets and every version here.</p><button type="button" class="btn-primary" data-hoa="design">Go to Design</button></div></section>`;
+      ws.innerHTML = `${side}<section class="ho-empty"><div><div class="ho-empty-i" aria-hidden="true">⇪</div><h2>Nothing handed over yet</h2><p>In <b>Design</b>, select the screens you've finished (<kbd>Ctrl</kbd>+<kbd>A</kbd> selects everything) and press <b>Commit</b> in the top bar, next to Play. Developers get specs, code, assets and every version here.</p><button type="button" class="btn-primary" data-hoa="design">Go to Design</button></div></section>`;
       this.hoWire(ws); return;
     }
     const hm = this.hoModel(h), diff = this.hoDiff(h), sc = h.screens[Math.min(this.ho.screen, h.screens.length - 1)];

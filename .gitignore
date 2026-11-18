@@ -47,3 +47,10 @@ desktop.ini
 *.swp
 .vscode/
 .idea/
+
+# Brand & Behance material (kept locally, not published)
+brand/
+docs/BRAND.html
+docs/DesignStudio-Brand-Book.pdf
+tools/render-brand.mjs
+Motion graphics/

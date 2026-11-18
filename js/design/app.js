@@ -102,6 +102,7 @@ class StudioApp {
     this.bindStandalone?.(); // standalone.js (v3.33.0)
     this.bindGitHub?.(); // ai/github.js (v3.34.0)
     this.bindHandover?.(); // shell/handover.js (v3.35.0)
+    this.bindImport?.(); // shell/importer.js (v3.37.0)
 
     window.addEventListener('beforeunload', (e) => {
       this.finishTextEdit();

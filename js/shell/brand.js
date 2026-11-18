@@ -8,7 +8,7 @@
 
 const BRAND = {
   name: 'DesignStudio',
-  company: 'Spideytech',
+  company: 'DesignStudio',
   tagline: 'Design, motion, media and 3D — one studio, fully offline.',
   /** The DesignStudio logo is a wordmark (v3.28): lowercase "designstudio" outlined from Sora Bold (SIL OFL), "design" in the
    *  blue → violet gradient, "studio" in pearl (#F4ECD6), and both i-dots replaced by holy-yellow link nodes (#FFC21A).
@@ -111,7 +111,7 @@ const BrandMixin = {
 
   // ------------------------------------------------------------------ keyboard shortcuts (? key, Help)
   showShortcuts() {
-    const S = [['General', [['Ctrl+Z / Ctrl+Shift+Z', 'Undo / redo'], ['Ctrl+S', 'Save project'], ['Ctrl+E', 'Export'], ['Ctrl+Alt+1 / 2 / 3', 'Design / Media / 3D'], ['C', 'Comments'], ['Ctrl+Alt+D', 'Diagnostics (health, logs)'], ['Ctrl+,', 'Settings'], ['?', 'This list']]],
+    const S = [['General', [['Ctrl+Z / Ctrl+Shift+Z', 'Undo / redo'], ['Ctrl+S', 'Save project'], ['Ctrl+I', 'Import'], ['Ctrl+E', 'Export'], ['Ctrl+Alt+1 / 2 / 3', 'Design / Media / 3D'], ['C', 'Comments'], ['Ctrl+Alt+D', 'Diagnostics (health, logs)'], ['Ctrl+,', 'Settings'], ['?', 'This list']]],
       ['Design', [['V', 'Select / move'], ['F', 'Frame'], ['R / O / T', 'Rectangle / ellipse / text'], ['P', 'Pen'], ['Space + drag', 'Pan'], ['Ctrl + wheel', 'Zoom'], ['Shift+1', 'Zoom to fit'], ['Ctrl+D / Ctrl+G', 'Duplicate / group'], ['Shift+A', 'Auto layout'], ['Ctrl+Alt+K', 'Create component'], ['Ctrl+;', 'Show / hide guides']]],
       ['3D', [['W / E / R', 'Move / rotate / scale'], ['F', 'Focus selection'], ['K', 'Key selection'], ['Space', 'Play / pause'], ['J / L', 'Previous / next key'], [', / .', 'Step a frame'], ['I / O', 'Play range in / out'], ['Ctrl+C / V / D', 'Copy / paste / duplicate keys']]],
       ['Media', [['Space', 'Play / pause'], ['← / →', 'Previous / next frame'], ['Delete', 'Delete frame']]]];

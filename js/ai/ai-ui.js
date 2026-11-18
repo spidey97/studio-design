@@ -36,7 +36,7 @@ const AIStudioMixin = {
     if (right) {
       const b = document.createElement('button');
       b.id = 'btn-ai'; b.className = 'menu-btn ai-btn'; b.type = 'button';
-      b.innerHTML = '<span aria-hidden="true">✦</span> AI<i class="ai-dot" hidden></i>';
+      b.innerHTML = '<span aria-hidden="true">✦</span><span class="ai-t"> AI</span><i class="ai-dot" hidden></i>';
       b.title = 'AI Studio (Ctrl+Alt+I)'; b.setAttribute('aria-label', 'AI Studio');
       right.insertBefore(b, right.firstChild);
       b.addEventListener('click', () => this.toggleAI());

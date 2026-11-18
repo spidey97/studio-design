@@ -10,6 +10,17 @@ Each change has an ID (`DS-<version>-NN`) so issues can be sorted, referenced an
 
 ---
 
+## 3.37.0 — 2026-11-18 · Import anything, code to design
+
+| ID | Tag | Change |
+|---|---|---|
+| DS-3.37.0-01 | NEW | **File › Import… (Ctrl+I).** The counterpart of Export, in every studio. Drop or choose any mix of files and each goes where it can be used: images and SVG to the Design canvas, video and GIFs to Media, GLB/glTF/OBJ/STL to 3D, token JSON to Variables, `.dsplugin` to Plugins, and a project file opens after you confirm. Cards let you pick the destination yourself, and a link opens Import from GitHub. "Open / Import…" is now "Open Project…". Code: `js/shell/importer.js`. QA: new `import` suite (5 tests). |
+| DS-3.37.0-02 | FIX | **Overlapping UI.** View-menu checkmarks no longer cover the labels (menus with toggles reserve a check column). Typography › Resize buttons (Auto W, Auto H, Fixed) are sized to their labels instead of 26px icon squares. Menu labels keep a 20px gap from their shortcuts. In the Import dialog, Esc now works even when the 3D engine finishes loading and takes focus. |
+| DS-3.37.0-03 | CHG | **Commit moves to the top bar.** The Commit to Handover button now sits left of Play, styled like the other top-bar buttons, instead of floating over the canvas. It still appears only when something is selected, and Play and Export never shift. The top bar now fits from 1024 px: below 1365 px Commit shows its icon and count only; below 1279 px Play and AI become icons; below 1199 px Grid, Snap and Timeline move to the View menu (shortcuts unchanged); below 1024 px the bar scrolls instead of clipping. QA: new top-bar fit test at 1024/1280/1440 px. |
+| DS-3.37.0-04 | NEW | **Import code as design layers.** File › Import… now accepts code. HTML + CSS, React (JSX/TSX), Vue and Svelte single-file components, and Tailwind classes (v3 palette, spacing, type, radius, shadows, gradients, responsive variants resolved at 1440 px) are converted offline. The code is laid out by the browser in a hidden, script-free shadow root, and every visible box, text run, gradient, shadow, image and inline SVG becomes an editable layer in one new frame (pages are 1440 wide; components are cropped to what they draw). Images the code links to can be dropped in the same import. SwiftUI, Flutter, Jetpack Compose and Android XML are rebuilt by the connected AI model. Safety: `<script>`, event handlers, iframes, forms and external URLs are stripped, and the CSP blocks the rest. One import is one undo step. Code: `js/design/code-import.js`. QA: new `codeimport` suite. |
+
+---
+
 ## 3.36.0 — 2026-11-08 · Free on GitHub
 
 | ID | Tag | Change |
@@ -17,6 +28,7 @@ Each change has an ID (`DS-<version>-NN`) so issues can be sorted, referenced an
 | DS-3.36.0-01 | CHG | **DesignStudio is now free.** It's published on GitHub under the PolyForm Noncommercial License 1.0.0: free for personal, hobby, study, education and non-profit use, but not for commercial use or resale. Files you create belong to you. `LICENSE.txt`, the About dialog, the build banner and the readmes are updated. |
 | DS-3.36.0-02 | CHG | All payment and selling plans are removed: the payment design documents and their Goldfish review reports are deleted from `docs/designs/`. |
 | DS-3.36.0-04 | NEW | **Safe GitHub launch.** A stricter `.gitignore` keeps out private folders, builds, secrets and `.env` files; `.gitattributes` sets line endings and binary files. Adds `SECURITY.md`, `CONTRIBUTING.md`, and `tools/check-publish.mjs`, a pre-push check for keys, tokens, private files, personal paths and large files. A GitHub Actions workflow runs the check on every push with read-only permissions. |
+| DS-3.36.0-05 | CHG | **Project-only credits.** Personal and company names are removed from the app, licence notice, docs, brand book and brand applications. Credits now read "DesignStudio". |
 | DS-3.36.0-03 | NEW | The README has GitHub instructions: download `DesignStudio.html` from Releases, run from source, and the release steps through a GitHub release. A `.gitignore` keeps out `node_modules`, `release/`, `_versions/` and test output. |
 
 ## 3.35.0 — 2026-11-05 · Developer Handover
@@ -93,7 +105,7 @@ Each change has an ID (`DS-<version>-NN`) so issues can be sorted, referenced an
 | ID | Tag | Change |
 |---|---|---|
 | DS-3.30.1-01 | NEW | **Competitor analysis** of Figma, Penpot, Rive, Spline and Jitter, as of November 2026. It covers features, where each tool runs, starting price, a positioning map and insights, with sources. It lives in `brand/research/competitors.json` and appears in the brand book under Foundation → Market & competitors (HTML and PDF). |
-| DS-3.30.1-02 | CHG | Business card and email signature: removed the "Founder" title and the placeholder email and website. Name, Spideytech and Chennai remain; add the website once it's live. |
+| DS-3.30.1-02 | CHG | Business card and email signature: removed the "Founder" title and the placeholder email and website. The name and location were later removed (DS-3.36.0-05). |
 
 ## 3.30.0 — 2026-11-04 · Complete brand system
 
@@ -191,7 +203,7 @@ Fixes the four biggest pain points from `tests/UX-REPORT.md`.
 - **DS-3.21.0-04 UI polish.** Single accent colour (Edit / Animate no longer purple); fill / stroke rows no longer truncate the type or hex value; linked layers named “(linked)”.
 - **DS-3.21.0-05 Brand & first run.** New app mark (top bar, welcome, About, splash, favicon), launch splash, refreshed welcome with the current “What’s new”, redesigned About (tagline, facts, third-party licences, diagnostics, copyright), a 6-step guided tour after the first start (About › Take the tour any time) and a keyboard-shortcut sheet (press ?). The logo opens About.
 - **DS-3.21.0-06 Fixed:** the layers panel did not refresh when a project was restored from IndexedDB after start-up.
-- **DS-3.21.0-07 Docs.** `docs/USER-GUIDE.html` (offline, light / dark), end-user README, `LICENSE.txt` (© Spideytech), `THIRD-PARTY-NOTICES.txt` (MIT licences of bundled libraries).
+- **DS-3.21.0-07 Docs.** `docs/USER-GUIDE.html` (offline, light / dark), end-user README, `LICENSE.txt` (© DesignStudio), `THIRD-PARTY-NOTICES.txt` (MIT licences of bundled libraries).
 
 ## v3.20.0 — “Hardened” · 2026-11-01
 - **DS-3.20.0-01 Malicious project files.** Every project load (open, autosave, recent, paste, design-system import) goes through a safe JSON parser (size cap, `__proto__` / `constructor` / `prototype` keys removed) and a deep sanitiser: prototype pollution is impossible, only inline `data:image/…` images are kept (remote tracking pixels and `javascript:` URLs dropped), links with odd targets are removed, prototype / trigger links are limited to http(s) and mailto.

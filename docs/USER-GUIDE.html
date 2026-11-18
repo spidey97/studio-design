@@ -147,7 +147,7 @@ footer { color: var(--sub); font-size: 13px; text-align: center; padding: 24px; 
 <h2 id="handover">Developer handover</h2>
 <p>The <b>Handover</b> tab (next to 3D, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>4</kbd>) is where developers pick up finished designs.</p>
 <ol>
-<li><b>Commit:</b> in Design, select the finished screens. <kbd>Ctrl</kbd>+<kbd>A</kbd> selects everything; selecting a layer inside a frame counts as its whole screen. A <b>Commit to Handover</b> button appears at the bottom of the canvas (or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Enter</kbd>). Add a title and a note, then commit. DesignStudio saves a frozen, numbered version (v1, v2…) and opens it in Handover. Later edits in Design don't change it.</li>
+<li><b>Commit:</b> in Design, select the finished screens. <kbd>Ctrl</kbd>+<kbd>A</kbd> selects everything; selecting a layer inside a frame counts as its whole screen. A <b>Commit</b> button appears in the top bar, next to Play (or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Enter</kbd>). Add a title and a note, then commit. DesignStudio saves a frozen, numbered version (v1, v2…) and opens it in Handover. Later edits in Design don't change it.</li>
 <li><b>Inspect:</b> click any layer on the screen to see its specs: size, position, spacing to its screen and parent, colours, type and effects. It also offers code (CSS, React, SwiftUI, Jetpack Compose, Flutter) and assets (SVG, or PNG at 1×, 2× and 3×). Select one layer and hover another to measure the distance between them. <kbd>Esc</kbd> clears the selection.</li>
 <li><b>Track:</b> each version has a status: Ready for development, In development, Changes requested or Done. A version shows what changed since the previous version of the same screens, with changed and added layers highlighted on the screen.</li>
 <li><b>Hand off:</b> <b>Download package</b> makes a .zip with a README, <code>spec.json</code> (every layer, relative to its screen, with notes), <code>tokens.json</code>, screen previews, HTML + CSS and React code, and the original images. Designers can leave a <b>Note for developers</b> on any layer.</li>
@@ -173,6 +173,7 @@ footer { color: var(--sub); font-size: 13px; text-align: center; padding: 24px; 
 <h2 id="github">GitHub repos</h2>
 <p>Bring icons, images, plugins and design tokens in from any GitHub repository.</p>
 <ul>
+<li><b>File › Import… (Ctrl+I)</b>: drop or choose files and each one goes to the studio that can use it. Images and SVG go to the Design canvas, video and GIFs to Media, 3D models (GLB, glTF, OBJ, STL) to 3D, design-token JSON to Variables and <code>.dsplugin</code> files to Plugins. A DesignStudio project opens after you confirm. <b>Code</b> becomes editable layers: HTML and CSS pages, React (JSX/TSX), Vue and Svelte components, and Tailwind classes convert offline into a new frame with real text, colours, gradients, shadows and images. Include image files in the same import to place the images the code links to. SwiftUI, Flutter and Jetpack Compose files are rebuilt by your connected AI model. Scripts in imported code never run. To choose the destination yourself, click a card instead. Files never leave your computer.</li>
 <li><b>File › Import from GitHub…</b>: type <code>owner/repo</code> or paste a github.com link (a folder link opens that folder). Tick the SVGs, images or <code>.dsplugin</code> files you want, then press <b>Import</b>. SVGs become editable layers.</li>
 <li><b>With AI</b>: ask in the AI panel, for example “import the arrow icons from owner/repo” or “turn the tokens in owner/repo into variables”. The AI lists and reads the repo, and nothing is imported until you confirm.</li>
 <li><b>Private repos</b>: open “Add a token” and paste a fine-grained token from github.com › Settings › Developer settings with <b>Contents: Read-only</b>. It is kept for this session only unless you tick <b>Remember on this device</b>, and it is never written to logs. Without a token, GitHub allows 60 requests an hour.</li>
@@ -213,6 +214,6 @@ footer { color: var(--sub); font-size: 13px; text-align: center; padding: 24px; 
 <p>When reporting a problem, click the logo › <b>Copy diagnostics</b> and include it.</p>
 </main>
 </div>
-<footer>© 2026 Spideytech. All rights reserved. · Open-source components: THIRD-PARTY-NOTICES.txt</footer>
+<footer>© 2026 DesignStudio. All rights reserved. · Open-source components: THIRD-PARTY-NOTICES.txt</footer>
 </body>
 </html>
